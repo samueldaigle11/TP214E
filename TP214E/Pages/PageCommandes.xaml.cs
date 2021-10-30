@@ -10,12 +10,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace TP214E.Pages
+namespace TP214E
 {
     /// <summary>
     /// Logique d'interaction pour PageCommandes.xaml
     /// </summary>
-    public partial class PageCommandes : Window
+    public partial class PageCommandes : Page
     {
         public PageCommandes()
         {
