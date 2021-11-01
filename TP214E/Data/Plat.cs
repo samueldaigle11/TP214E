@@ -14,9 +14,9 @@ namespace TP214E.Data
 
         public Plat(string pNom, double pPrix, List<ObjetInventaire> pObjetsInventaireNecessaires)
         {
-            _nom = pNom;
-            _prix = pPrix;
-            _objetsInventaireNecessaires = pObjetsInventaireNecessaires;
+            Nom = pNom;
+            Prix = pPrix;
+            Aliments = pAliments;
         }
 
         public ObjectId Id
