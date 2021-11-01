@@ -16,7 +16,7 @@ namespace TP214E.Data
         {
             Nom = pNom;
             Prix = pPrix;
-            Aliments = pAliments;
+            ObjetsInventaireNecessaires = pObjetsInventaireNecessaires;
         }
 
         public ObjectId Id
