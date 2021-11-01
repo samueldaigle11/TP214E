@@ -10,10 +10,9 @@ namespace TP214E.Data
         private ObjectId _id;
         private string _nom;
         private double _prix;
-        private List<Aliment> _aliments;
-        // faudrait ajouter Assiette (peut-être faire une classe mère pour itemInventaire) ***
+        private List<ObjetInventaire> _objetsInventaireNecessaires;
 
-        public Plat(string pNom, double pPrix, List<Aliment> pAliments)
+        public Plat(string pNom, double pPrix, List<ObjetInventaire> pObjetsInventaireNecessaires)
         {
             Nom = pNom;
             Prix = pPrix;
@@ -38,10 +37,10 @@ namespace TP214E.Data
             set { _prix = value; }
         }
 
-        public List<Aliment> Aliments
+        public List<ObjetInventaire> ObjetsInventaireNecessaires
         {
-            get { return _aliments; }
-            set { _aliments = value; }
+            get { return _objetsInventaireNecessaires; }
+            set { _objetsInventaireNecessaires = value; }
         }
 
         // TODO ajouter les méthodes (EstDisponible, SoustraireItemsNecessairesDeLInventaire, Enregistrer?)
