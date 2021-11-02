@@ -25,5 +25,12 @@ namespace TP214E
             InitializeComponent();
             aliments = accesseurBaseDeDonnees.ObtenirAliments();
         }
+
+        private void bt_retourAccueil_Click(object sender, RoutedEventArgs e)
+        {
+            PageAccueil frmAccueil = new PageAccueil();
+
+            this.NavigationService.Navigate(frmAccueil);
+        }
     }
 }
