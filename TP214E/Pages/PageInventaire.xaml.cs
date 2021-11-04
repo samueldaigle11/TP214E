@@ -32,5 +32,11 @@ namespace TP214E
 
             NavigationService.Navigate(frmAccueil);
         }
+
+        private void bt_ajouterObjet_Click(object sender, RoutedEventArgs e)
+        {
+            FenetreObjetInventaire fenetreObjetInventaire = new FenetreObjetInventaire();
+            fenetreObjetInventaire.Show();
+        }
     }
 }
