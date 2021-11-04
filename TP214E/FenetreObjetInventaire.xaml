@@ -17,7 +17,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="0.2*"/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Grid.Column="1" Content="Inventaire du FoodTruck" Foreground="#FF5F8C5A" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Rockwell" FontSize="36" FontWeight="Normal"/>
+        <Label Name="lbl_titreFenetre" Grid.Row="0" Grid.Column="1" Content="Ajout d'un Objet à l'inventaire" Foreground="#FF5F8C5A" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Rockwell" FontSize="36" FontWeight="Normal"/>
 
     </Grid>
 </Window>
