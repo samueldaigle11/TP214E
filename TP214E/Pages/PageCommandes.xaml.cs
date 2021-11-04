@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TP214E.Data;
 
 namespace TP214E
 {
@@ -17,9 +18,13 @@ namespace TP214E
     /// </summary>
     public partial class PageCommandes : Page
     {
-        public PageCommandes()
+        private List<Commande> commandes;
+
+        public PageCommandes(AccesseurBaseDeDonnees accesseurBaseDeDonnees)
         {
-            InitializeComponent();
+            InitializeComponent(); 
+
+            commandes = accesseurBaseDeDonnees.ObtenirCommandes();
         }
     }
 }

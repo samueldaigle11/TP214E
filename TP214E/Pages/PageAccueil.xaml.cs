@@ -30,14 +30,15 @@ namespace TP214E
         {
             PageInventaire frmInventaire = new PageInventaire(accesseurBaseDeDonnees);
 
-            this.NavigationService.Navigate(frmInventaire);
+            NavigationService.Navigate(frmInventaire);
         }
 
         private void BoutonCommandes_Click(object sender, RoutedEventArgs e)
         {
-            PageCommandes frmCommandes = new PageCommandes();
+            PageCommandes frmCommandes = new PageCommandes(accesseurBaseDeDonnees);
 
-            this.NavigationService.Navigate(new Uri("Pages/PageCommandes.xaml", UriKind.Relative));
+            //this.NavigationService.Navigate(new Uri("Pages/PageCommandes.xaml", UriKind.Relative));
+            NavigationService.Navigate(frmCommandes);
         }
     }
 }
