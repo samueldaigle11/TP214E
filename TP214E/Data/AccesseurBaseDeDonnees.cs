@@ -29,6 +29,24 @@ namespace TP214E.Data
             return aliments;
         }
 
+        public List<Commande> ObtenirCommandes()
+        {
+            List<Commande> commandes = new List<Commande>();
+
+            try
+            {
+                IMongoDatabase baseDeDonnees = clientMongoDB.GetDatabase("TP2DB");
+                commandes = baseDeDonnees.GetCollection<Commande>("Commandes").Aggregate().ToList();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Impossible de se connecter à la base de données " + ex.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            return commandes;
+        }
+
         private MongoClient OuvrirConnexion()
         {
             MongoClient clientBaseDeDonnees = null;
