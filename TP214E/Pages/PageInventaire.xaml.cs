@@ -30,7 +30,7 @@ namespace TP214E
         {
             PageAccueil frmAccueil = new PageAccueil();
 
-            this.NavigationService.Navigate(frmAccueil);
+            NavigationService.Navigate(frmAccueil);
         }
     }
 }
