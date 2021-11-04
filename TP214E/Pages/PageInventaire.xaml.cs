@@ -30,7 +30,13 @@ namespace TP214E
         {
             PageAccueil frmAccueil = new PageAccueil();
 
-            this.NavigationService.Navigate(frmAccueil);
+            NavigationService.Navigate(frmAccueil);
+        }
+
+        private void bt_ajouterObjet_Click(object sender, RoutedEventArgs e)
+        {
+            FenetreObjetInventaire fenetreObjetInventaire = new FenetreObjetInventaire();
+            fenetreObjetInventaire.Show();
         }
     }
 }
