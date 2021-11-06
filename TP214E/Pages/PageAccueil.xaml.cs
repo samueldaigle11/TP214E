@@ -40,5 +40,10 @@ namespace TP214E
             //this.NavigationService.Navigate(new Uri("Pages/PageCommandes.xaml", UriKind.Relative));
             NavigationService.Navigate(frmCommandes);
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            accesseurBaseDeDonnees.EcrireBdTest();
+        }
     }
 }

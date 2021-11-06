@@ -103,5 +103,66 @@ namespace TP214E.Data
             return clientBaseDeDonnees;
         }
 
+        public void EcrireBdTest()
+        {
+            List<Aliment> aliments = new List<Aliment>();
+            List<ObjetInventaire> objetsInventaire = new List<ObjetInventaire>();
+
+            try
+            {
+                // ajouter un aliment dans la bd avec la classe enfant (fonctionne)
+                //IMongoDatabase baseDeDonnees = clientMongoDB.GetDatabase("TP2DB");
+                //IMongoCollection<Aliment> alimentsCollection = baseDeDonnees.GetCollection<Aliment>("aliments");
+
+                //Aliment nouvelAliment = new Aliment("pomme", 5, "unité", DateTime.Now);
+                //alimentsCollection.InsertOne(nouvelAliment);
+
+                //nouvelAliment = new Aliment("pain burger", 6, "unité", DateTime.Now);
+                //alimentsCollection.InsertOne(nouvelAliment);
+
+                //// obtenir tous les aliments
+                //aliments  = baseDeDonnees.GetCollection<Aliment>("aliments").Aggregate().ToList();
+
+                //// test la liste d'aliments
+                //foreach (Aliment aliment in aliments)
+                //{
+                //    Console.WriteLine("Les aliments sont: ");
+                //    Console.WriteLine($"{aliment.Id} {aliment.Nom}");
+                //    MessageBox.Show($"{aliment.Id} {aliment.Nom}");
+                //}
+
+                // Tests avec la classe mère
+                IMongoDatabase baseDeDonnees = clientMongoDB.GetDatabase("TP2DB");
+                IMongoCollection<ObjetInventaire> objetInventaireCollection = baseDeDonnees.GetCollection<ObjetInventaire>("objetsInventaire");
+
+                // aliments
+                Aliment nouvelAliment = new Aliment("pomme", 5, "unité", DateTime.Now);
+                objetInventaireCollection.InsertOne(nouvelAliment);
+
+                nouvelAliment = new Aliment("pain burger", 6, "unité", DateTime.Now);
+                objetInventaireCollection.InsertOne(nouvelAliment);
+
+                // Ustensile
+                Ustensile nouvelUstensile = new Ustensile("fourchette", 1);
+                objetInventaireCollection.InsertOne(nouvelUstensile);
+
+                // obtenir tous les aliments
+                objetsInventaire = baseDeDonnees.GetCollection<ObjetInventaire>("objetsInventaire").Aggregate().ToList();
+
+                // test la liste d'aliments
+                foreach (ObjetInventaire objetInventaire in objetsInventaire)
+                {
+                    Console.WriteLine("Les aliments sont: ");
+                    Console.WriteLine($"{objetInventaire.Id} {objetInventaire.Nom}");
+                    MessageBox.Show($"{objetInventaire.Id} {objetInventaire.Nom}");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Impossible de se connecter à la base de données " + ex.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
     }
 }
