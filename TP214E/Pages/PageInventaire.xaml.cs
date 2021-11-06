@@ -19,11 +19,24 @@ namespace TP214E
     /// </summary>
     public partial class PageInventaire : Page
     {
-        private List<Aliment> aliments;
+        private List<ObjetInventaire> objetsInventaire;
+
         public PageInventaire(AccesseurBaseDeDonnees accesseurBaseDeDonnees)
         {
             InitializeComponent();
-            aliments = accesseurBaseDeDonnees.ObtenirAliments();
+
+            objetsInventaire = accesseurBaseDeDonnees.ObtenirObjetsInventaire();
+            rafraichirLstObjetsInventaire();
+        }
+
+        private void rafraichirLstObjetsInventaire()
+        {
+            lstObjetsInventaire.Items.Clear();
+            
+            foreach (ObjetInventaire objetInventaire in objetsInventaire)
+            {
+                lstObjetsInventaire.Items.Add(objetInventaire.Nom);
+            }
         }
 
         private void bt_retourAccueil_Click(object sender, RoutedEventArgs e)

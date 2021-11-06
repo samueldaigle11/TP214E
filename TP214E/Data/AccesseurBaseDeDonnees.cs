@@ -103,5 +103,22 @@ namespace TP214E.Data
             return clientBaseDeDonnees;
         }
 
+        public List<ObjetInventaire> ObtenirObjetsInventaire()
+        {
+            List<ObjetInventaire> objetsInventaire = new List<ObjetInventaire>();
+
+            try
+            {
+                IMongoDatabase baseDeDonnees = clientMongoDB.GetDatabase("TP2DB");
+                objetsInventaire = baseDeDonnees.GetCollection<ObjetInventaire>("objetsInventaire").Aggregate().ToList();
+            }
+
+            catch (Exception exeption)
+            {
+                MessageBox.Show("Impossible de se connecter à la base de données " + exeption.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            return objetsInventaire;
+        }
     }
 }
