@@ -109,13 +109,24 @@ namespace TP214E.Data
 
             try
             {
+                // Tests avec la classe mère
                 IMongoDatabase baseDeDonnees = clientMongoDB.GetDatabase("TP2DB");
-                objetsInventaire = baseDeDonnees.GetCollection<ObjetInventaire>("objetsInventaire").Aggregate().ToList();
-            }
+                IMongoCollection<ObjetInventaire> objetInventaireCollection = baseDeDonnees.GetCollection<ObjetInventaire>("objetsInventaire");
 
-            catch (Exception exeption)
+                // obtenir tous les aliments
+                objetsInventaire = baseDeDonnees.GetCollection<ObjetInventaire>("objetsInventaire").Aggregate().ToList();
+
+                // test la liste d'aliments
+                foreach (ObjetInventaire objetInventaire in objetsInventaire)
+                {
+                    Console.WriteLine("Les aliments sont: ");
+                    Console.WriteLine($"{objetInventaire.Id} {objetInventaire.Nom}");
+                    MessageBox.Show($"{objetInventaire.Id} {objetInventaire.Nom}");
+                }
+            }
+            catch (Exception ex)
             {
-                MessageBox.Show("Impossible de se connecter à la base de données " + exeption.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Impossible de se connecter à la base de données " + ex.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
             return objetsInventaire;
