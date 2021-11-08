@@ -49,7 +49,12 @@ namespace TP214E
         private void bt_ajouterObjet_Click(object sender, RoutedEventArgs e)
         {
             FenetreObjetInventaire fenetreObjetInventaire = new FenetreObjetInventaire();
-            fenetreObjetInventaire.Show();
+            fenetreObjetInventaire.Title = "Ajout d'un objet/aliment";
+
+            if (fenetreObjetInventaire.ShowDialog() == true)
+            {
+                rafraichirLstObjetsInventaire();
+            }
         }
     }
 }

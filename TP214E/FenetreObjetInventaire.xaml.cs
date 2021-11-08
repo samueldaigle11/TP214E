@@ -21,5 +21,12 @@ namespace TP214E
         {
             InitializeComponent();
         }
+
+        private void AjouterAInventaire(object sender, RoutedEventArgs e)
+        {
+
+
+            this.DialogResult = true;
+        }
     }
 }
