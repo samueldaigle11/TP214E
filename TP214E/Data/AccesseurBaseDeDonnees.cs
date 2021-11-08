@@ -30,27 +30,29 @@ namespace TP214E.Data
             return aliments;
         }
 
-        public void AjouterObjet(ObjetInventaire objetInventaire)
+        public void AjouterObjet(ObjetInventaire objetAAjouter)
         {
-            List<ObjetInventaire> objetsInventaire = new List<ObjetInventaire>();
-
             try
             {
                 IMongoDatabase baseDeDonnees = clientMongoDB.GetDatabase("TP2DB");
                 IMongoCollection<ObjetInventaire> objetInventaireCollection = baseDeDonnees.GetCollection<ObjetInventaire>("objetsInventaire");
 
-                objetInventaireCollection.InsertOne(objetInventaire);
+                objetInventaireCollection.InsertOne(objetAAjouter);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Impossible de se connecter à la base de données " + ex.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
 
-                //// aliments
-                //Aliment nouvelAliment = new Aliment("pomme", 5, "unité", DateTime.Now);
-                //objetInventaireCollection.InsertOne(nouvelAliment);
+        public void SupprimerObjet(ObjetInventaire objetASupprimer)
+        {
+            try
+            {
+                IMongoDatabase baseDeDonnees = clientMongoDB.GetDatabase("TP2DB");
+                IMongoCollection<ObjetInventaire> objetInventaireCollection = baseDeDonnees.GetCollection<ObjetInventaire>("objetsInventaire");
 
-                //nouvelAliment = new Aliment("pain burger", 6, "unité", DateTime.Now);
-                //objetInventaireCollection.InsertOne(nouvelAliment);
-
-                //// Ustensile
-                //Ustensile nouvelUstensile = new Ustensile("fourchette", 1);
-                //objetInventaireCollection.InsertOne(nouvelUstensile);
+                //objetInventaireCollection.InsertOne(objetAAjouter);
             }
             catch (Exception ex)
             {

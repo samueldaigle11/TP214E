@@ -59,5 +59,18 @@ namespace TP214E
                 rafraichirLstObjetsInventaire();
             }
         }
+
+        private void Supprimer(object sender, RoutedEventArgs e)
+        {
+            if (lstObjetsInventaire.SelectedIndex != -1)
+            {
+                int indiceObjetASupprimer = lstObjetsInventaire.SelectedIndex;
+                ObjetInventaire objetASupprimer = objetsInventaire[indiceObjetASupprimer];
+
+
+
+                MessageBox.Show(objetASupprimer.Id.ToString(), "test");
+            }
+        }
     }
 }

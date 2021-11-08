@@ -46,5 +46,10 @@ namespace TP214E
 
             this.DialogResult = true;
         }
+
+        private void Annuler(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = false;
+        }
     }
 }
