@@ -52,7 +52,8 @@ namespace TP214E.Data
                 IMongoDatabase baseDeDonnees = clientMongoDB.GetDatabase("TP2DB");
                 IMongoCollection<ObjetInventaire> objetInventaireCollection = baseDeDonnees.GetCollection<ObjetInventaire>("objetsInventaire");
 
-                //objetInventaireCollection.InsertOne(objetAAjouter);
+                var filtre = Builders<ObjetInventaire>.Filter.Eq("_id", objetASupprimer.Id);
+                objetInventaireCollection.DeleteOne(filtre);
             }
             catch (Exception ex)
             {

@@ -67,9 +67,8 @@ namespace TP214E
                 int indiceObjetASupprimer = lstObjetsInventaire.SelectedIndex;
                 ObjetInventaire objetASupprimer = objetsInventaire[indiceObjetASupprimer];
 
-
-
-                MessageBox.Show(objetASupprimer.Id.ToString(), "test");
+                accesseurBaseDeDonnees.SupprimerObjet(objetASupprimer);
+                rafraichirLstObjetsInventaire();
             }
         }
     }
