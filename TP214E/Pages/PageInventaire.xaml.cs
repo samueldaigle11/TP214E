@@ -19,11 +19,27 @@ namespace TP214E
     /// </summary>
     public partial class PageInventaire : Page
     {
-        private List<Aliment> aliments;
+        private AccesseurBaseDeDonnees accesseurBaseDeDonnees;
+        private List<ObjetInventaire> objetsInventaire;
+
         public PageInventaire(AccesseurBaseDeDonnees accesseurBaseDeDonnees)
         {
             InitializeComponent();
-            aliments = accesseurBaseDeDonnees.ObtenirAliments();
+
+            this.accesseurBaseDeDonnees = accesseurBaseDeDonnees;
+
+            rafraichirLstObjetsInventaire();
+        }
+
+        private void rafraichirLstObjetsInventaire()
+        {
+            objetsInventaire = accesseurBaseDeDonnees.ObtenirObjetsInventaire();
+            lstObjetsInventaire.Items.Clear();
+            
+            foreach (ObjetInventaire objetInventaire in objetsInventaire)
+            {
+                lstObjetsInventaire.Items.Add(objetInventaire.Nom);
+            }
         }
 
         private void bt_retourAccueil_Click(object sender, RoutedEventArgs e)
@@ -35,8 +51,25 @@ namespace TP214E
 
         private void bt_ajouterObjet_Click(object sender, RoutedEventArgs e)
         {
-            FenetreObjetInventaire fenetreObjetInventaire = new FenetreObjetInventaire();
-            fenetreObjetInventaire.Show();
+            FenetreObjetInventaire fenetreObjetInventaire = new FenetreObjetInventaire(accesseurBaseDeDonnees);
+            fenetreObjetInventaire.Title = "Ajout d'un objet/aliment";
+
+            if (fenetreObjetInventaire.ShowDialog() == true)
+            {
+                rafraichirLstObjetsInventaire();
+            }
+        }
+
+        private void Supprimer(object sender, RoutedEventArgs e)
+        {
+            if (lstObjetsInventaire.SelectedIndex != -1)
+            {
+                int indiceObjetASupprimer = lstObjetsInventaire.SelectedIndex;
+                ObjetInventaire objetASupprimer = objetsInventaire[indiceObjetASupprimer];
+
+                accesseurBaseDeDonnees.SupprimerObjet(objetASupprimer);
+                rafraichirLstObjetsInventaire();
+            }
         }
     }
 }

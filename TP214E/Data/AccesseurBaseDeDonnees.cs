@@ -30,44 +30,34 @@ namespace TP214E.Data
             return aliments;
         }
 
-        public void AjouterObjet(ObjetInventaire objet)
+        public void AjouterObjet(ObjetInventaire objetAAjouter)
         {
             try
             {
                 IMongoDatabase baseDeDonnees = clientMongoDB.GetDatabase("TP2DB");
+                IMongoCollection<ObjetInventaire> objetInventaireCollection = baseDeDonnees.GetCollection<ObjetInventaire>("objetsInventaire");
 
-                var aliments = baseDeDonnees.GetCollection<BsonDocument>("aliments");
-
-                var documentAjoutObjet = new BsonDocument();
-
-                if (objet is Aliment)
-                {
-                    documentAjoutObjet = new BsonDocument
-                    {
-                        {"nom", ((Aliment)objet).Nom},
-                        {"quantite", ((Aliment)objet).Quantite},
-                        {"unite", ((Aliment)objet).Unite},
-                        {"datePeremption", ((Aliment)objet).DatePeremption}
-                    };
-                }
-                else
-                {
-                    documentAjoutObjet = new BsonDocument
-                    {
-                        {"nom", objet.Nom},
-                        {"quantite", objet.Quantite}
-                    };
-                }
-                
-
-                aliments.InsertOne(documentAjoutObjet);
-
-
+                objetInventaireCollection.InsertOne(objetAAjouter);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Il y a une erreur dans votre aliment" + ex.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Impossible de se connecter à la base de données " + ex.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
 
+        public void SupprimerObjet(ObjetInventaire objetASupprimer)
+        {
+            try
+            {
+                IMongoDatabase baseDeDonnees = clientMongoDB.GetDatabase("TP2DB");
+                IMongoCollection<ObjetInventaire> objetInventaireCollection = baseDeDonnees.GetCollection<ObjetInventaire>("objetsInventaire");
+
+                var filtre = Builders<ObjetInventaire>.Filter.Eq("_id", objetASupprimer.Id);
+                objetInventaireCollection.DeleteOne(filtre);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Impossible de se connecter à la base de données " + ex.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -103,5 +93,21 @@ namespace TP214E.Data
             return clientBaseDeDonnees;
         }
 
+        public List<ObjetInventaire> ObtenirObjetsInventaire()
+        {
+            List<ObjetInventaire> objetsInventaire = new List<ObjetInventaire>();
+
+            try
+            {
+                IMongoDatabase baseDeDonnees = clientMongoDB.GetDatabase("TP2DB");
+                objetsInventaire = baseDeDonnees.GetCollection<ObjetInventaire>("objetsInventaire").Aggregate().ToList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Impossible de se connecter à la base de données " + ex.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            return objetsInventaire;
+        }
     }
 }

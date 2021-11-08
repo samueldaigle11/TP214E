@@ -2,9 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace TP214E.Data
 {
+    [BsonDiscriminator(RootClass = true)]
+    [BsonKnownTypes(typeof(Aliment), typeof(Ustensile), typeof(Contenant))]
+
     public abstract class ObjetInventaire
     {
         private ObjectId _id;
