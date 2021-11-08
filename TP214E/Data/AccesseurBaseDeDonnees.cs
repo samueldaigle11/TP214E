@@ -154,7 +154,7 @@ namespace TP214E.Data
                 {
                     Console.WriteLine("Les aliments sont: ");
                     Console.WriteLine($"{objetInventaire.Id} {objetInventaire.Nom}");
-                    MessageBox.Show($"{objetInventaire.Id} {objetInventaire.Nom}");
+                    MessageBox.Show($"{objetInventaire.Id} {objetInventaire.Nom} {typeof(ObjetInventaire)}");
                 }
 
             }
