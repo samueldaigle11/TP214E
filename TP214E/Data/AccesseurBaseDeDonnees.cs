@@ -30,44 +30,31 @@ namespace TP214E.Data
             return aliments;
         }
 
-        public void AjouterObjet(ObjetInventaire objet)
+        public void AjouterObjet(ObjetInventaire objetInventaire)
         {
+            List<ObjetInventaire> objetsInventaire = new List<ObjetInventaire>();
+
             try
             {
                 IMongoDatabase baseDeDonnees = clientMongoDB.GetDatabase("TP2DB");
+                IMongoCollection<ObjetInventaire> objetInventaireCollection = baseDeDonnees.GetCollection<ObjetInventaire>("objetsInventaire");
 
-                var aliments = baseDeDonnees.GetCollection<BsonDocument>("aliments");
+                objetInventaireCollection.InsertOne(objetInventaire);
 
-                var documentAjoutObjet = new BsonDocument();
+                //// aliments
+                //Aliment nouvelAliment = new Aliment("pomme", 5, "unité", DateTime.Now);
+                //objetInventaireCollection.InsertOne(nouvelAliment);
 
-                if (objet is Aliment)
-                {
-                    documentAjoutObjet = new BsonDocument
-                    {
-                        {"nom", ((Aliment)objet).Nom},
-                        {"quantite", ((Aliment)objet).Quantite},
-                        {"unite", ((Aliment)objet).Unite},
-                        {"datePeremption", ((Aliment)objet).DatePeremption}
-                    };
-                }
-                else
-                {
-                    documentAjoutObjet = new BsonDocument
-                    {
-                        {"nom", objet.Nom},
-                        {"quantite", objet.Quantite}
-                    };
-                }
-                
+                //nouvelAliment = new Aliment("pain burger", 6, "unité", DateTime.Now);
+                //objetInventaireCollection.InsertOne(nouvelAliment);
 
-                aliments.InsertOne(documentAjoutObjet);
-
-
+                //// Ustensile
+                //Ustensile nouvelUstensile = new Ustensile("fourchette", 1);
+                //objetInventaireCollection.InsertOne(nouvelUstensile);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Il y a une erreur dans votre aliment" + ex.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
-
+                MessageBox.Show("Impossible de se connecter à la base de données " + ex.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

@@ -19,18 +19,21 @@ namespace TP214E
     /// </summary>
     public partial class PageInventaire : Page
     {
+        private AccesseurBaseDeDonnees accesseurBaseDeDonnees;
         private List<ObjetInventaire> objetsInventaire;
 
         public PageInventaire(AccesseurBaseDeDonnees accesseurBaseDeDonnees)
         {
             InitializeComponent();
 
-            objetsInventaire = accesseurBaseDeDonnees.ObtenirObjetsInventaire();
+            this.accesseurBaseDeDonnees = accesseurBaseDeDonnees;
+
             rafraichirLstObjetsInventaire();
         }
 
         private void rafraichirLstObjetsInventaire()
         {
+            objetsInventaire = accesseurBaseDeDonnees.ObtenirObjetsInventaire();
             lstObjetsInventaire.Items.Clear();
             
             foreach (ObjetInventaire objetInventaire in objetsInventaire)
@@ -48,7 +51,7 @@ namespace TP214E
 
         private void bt_ajouterObjet_Click(object sender, RoutedEventArgs e)
         {
-            FenetreObjetInventaire fenetreObjetInventaire = new FenetreObjetInventaire();
+            FenetreObjetInventaire fenetreObjetInventaire = new FenetreObjetInventaire(accesseurBaseDeDonnees);
             fenetreObjetInventaire.Title = "Ajout d'un objet/aliment";
 
             if (fenetreObjetInventaire.ShowDialog() == true)
