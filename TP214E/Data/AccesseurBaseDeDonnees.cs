@@ -119,8 +119,8 @@ namespace TP214E.Data
                 // test la liste d'aliments
                 foreach (ObjetInventaire objetInventaire in objetsInventaire)
                 {
-                    Console.WriteLine("Les aliments sont: ");
-                    Console.WriteLine($"{objetInventaire.Id} {objetInventaire.Nom}");
+                    //Console.WriteLine("Les aliments sont: ");
+                    //Console.WriteLine($"{objetInventaire.Id} {objetInventaire.Nom}");
                     MessageBox.Show($"{objetInventaire.Id} {objetInventaire.Nom}");
                 }
             }
