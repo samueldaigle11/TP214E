@@ -71,5 +71,41 @@ namespace TP214E
                 rafraichirLstObjetsInventaire();
             }
         }
+
+        private void Modifier(object sender, RoutedEventArgs e)
+        {
+            int indiceObjetASupprimer = lstObjetsInventaire.SelectedIndex;
+            ObjetInventaire objetAModifier = objetsInventaire[indiceObjetASupprimer];
+
+            FenetreObjetInventaire fenetreObjetInventaire = new FenetreObjetInventaire(accesseurBaseDeDonnees);
+            fenetreObjetInventaire.ObjetInventaireAModifier = objetAModifier;
+            fenetreObjetInventaire.Title = "Modification d'un objet/aliment";
+            fenetreObjetInventaire.lbl_titreFenetre.Content = "Modification d'un objet";
+            fenetreObjetInventaire.txtNom.Text = objetAModifier.Nom;
+            fenetreObjetInventaire.txtQuantite.Text = objetAModifier.Quantite.ToString();
+            fenetreObjetInventaire.radioAliment.IsEnabled = false;
+            fenetreObjetInventaire.radioContenant.IsEnabled = false;
+            fenetreObjetInventaire.radioUstensile.IsEnabled = false;
+
+
+            if (objetAModifier.GetType() == typeof(Aliment))
+            {
+                fenetreObjetInventaire.txtUnite.Text = ((Aliment)objetAModifier).Unite;
+                fenetreObjetInventaire.txtDatePeremption.Text = ((Aliment)objetAModifier).DatePeremption.ToString();
+            } 
+            else if (objetAModifier.GetType() == typeof(Contenant))
+            {
+                fenetreObjetInventaire.radioContenant.IsChecked = true;
+            }
+            else
+            {
+                fenetreObjetInventaire.radioUstensile.IsChecked = true;
+            }
+
+            if (fenetreObjetInventaire.ShowDialog() == true)
+            {
+                rafraichirLstObjetsInventaire();
+            }
+        }
     }
 }

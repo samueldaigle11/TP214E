@@ -19,6 +19,13 @@ namespace TP214E
     public partial class FenetreObjetInventaire : Window
     {
         private AccesseurBaseDeDonnees accesseurBaseDeDonnees;
+        private ObjetInventaire objetInventaireAModifier;
+
+        public ObjetInventaire ObjetInventaireAModifier
+        {
+            get { return objetInventaireAModifier; }
+            set { objetInventaireAModifier = value; }
+        }
 
         public FenetreObjetInventaire(AccesseurBaseDeDonnees accesseurBaseDeDonnees)
         {
@@ -26,7 +33,7 @@ namespace TP214E
             this.accesseurBaseDeDonnees = accesseurBaseDeDonnees;
         }
 
-        private void AjouterAInventaire(object sender, RoutedEventArgs e)
+        private void AjouterAInventaire()
         {
             if (this.radioAliment.IsChecked == true)
             {
@@ -45,6 +52,39 @@ namespace TP214E
             }
 
             this.DialogResult = true;
+        }
+
+        private void ModifierDansInventaire()
+        {
+            ObjetInventaire nouvelObjetInventaire;
+
+            if (this.radioAliment.IsChecked == true)
+            {
+                nouvelObjetInventaire = new Aliment(txtNom.Text, Convert.ToInt32(txtQuantite.Text), txtUnite.Text, DateTime.Parse(txtDatePeremption.Text).ToLocalTime());
+            }
+            else if (this.radioContenant.IsChecked == true)
+            {
+                nouvelObjetInventaire = new Contenant(txtNom.Text, Convert.ToInt32(txtQuantite.Text));
+            }
+            else
+            {
+                nouvelObjetInventaire = new Ustensile(txtNom.Text, Convert.ToInt32(txtQuantite.Text));
+            }
+
+            accesseurBaseDeDonnees.ModifierObjet(objetInventaireAModifier.Id, nouvelObjetInventaire);
+            this.DialogResult = true;
+        }
+
+        private void CreerOuModifierObjetInventaire(object sender, RoutedEventArgs e)
+        {
+            if (objetInventaireAModifier == null)
+            {
+                AjouterAInventaire();
+            }
+            else
+            {
+                ModifierDansInventaire();
+            }
         }
 
         private void Annuler(object sender, RoutedEventArgs e)
