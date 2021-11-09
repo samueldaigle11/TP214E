@@ -87,7 +87,6 @@ namespace TP214E
             fenetreObjetInventaire.radioContenant.IsEnabled = false;
             fenetreObjetInventaire.radioUstensile.IsEnabled = false;
 
-
             if (objetAModifier.GetType() == typeof(Aliment))
             {
                 fenetreObjetInventaire.txtUnite.Text = ((Aliment)objetAModifier).Unite;
