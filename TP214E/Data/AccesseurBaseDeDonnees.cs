@@ -27,10 +27,7 @@ namespace TP214E.Data
 
         public List<Aliment> ObtenirAliments()
         {
-            List<Aliment> aliments = new List<Aliment>();
-            aliments = baseDeDonnees.GetCollection<Aliment>("Aliments").Aggregate().ToList();
-
-            return aliments;
+            return baseDeDonnees.GetCollection<Aliment>("Aliments").Aggregate().ToList();
         }
 
         public void AjouterObjet(ObjetInventaire objetAAjouter)
@@ -49,18 +46,12 @@ namespace TP214E.Data
 
         public List<Commande> ObtenirCommandes()
         {
-            List<Commande> commandes = new List<Commande>();
-            commandes = baseDeDonnees.GetCollection<Commande>("Commandes").Aggregate().ToList();
-
-            return commandes;
+            return baseDeDonnees.GetCollection<Commande>("Commandes").Aggregate().ToList();
         }
 
         public List<ObjetInventaire> ObtenirObjetsInventaire()
         {
-            List<ObjetInventaire> objetsInventaire = new List<ObjetInventaire>();
-            objetsInventaire = baseDeDonnees.GetCollection<ObjetInventaire>("objetsInventaire").Aggregate().ToList();
-
-            return objetsInventaire;
+            return baseDeDonnees.GetCollection<ObjetInventaire>("objetsInventaire").Aggregate().ToList();
         }
 
         private MongoClient OuvrirConnexion()
