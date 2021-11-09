@@ -9,74 +9,58 @@ namespace TP214E.Data
     public class AccesseurBaseDeDonnees
     {
         private MongoClient clientMongoDB;
+        private IMongoDatabase baseDeDonnees;
+
         public AccesseurBaseDeDonnees()
         {
             clientMongoDB = OuvrirConnexion();
+
+            try
+            {
+                baseDeDonnees = clientMongoDB.GetDatabase("TP2DB");
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Impossible de se connecter à la base de données " + exception.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         public List<Aliment> ObtenirAliments()
         {
             List<Aliment> aliments = new List<Aliment>();
-            try
-            {
-                IMongoDatabase baseDeDonnees = clientMongoDB.GetDatabase("TP2DB");
-                aliments = baseDeDonnees.GetCollection<Aliment>("Aliments").Aggregate().ToList();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Impossible de se connecter à la base de données " + ex.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+            aliments = baseDeDonnees.GetCollection<Aliment>("Aliments").Aggregate().ToList();
 
-            }
             return aliments;
         }
 
         public void AjouterObjet(ObjetInventaire objetAAjouter)
         {
-            try
-            {
-                IMongoDatabase baseDeDonnees = clientMongoDB.GetDatabase("TP2DB");
-                IMongoCollection<ObjetInventaire> objetInventaireCollection = baseDeDonnees.GetCollection<ObjetInventaire>("objetsInventaire");
-
-                objetInventaireCollection.InsertOne(objetAAjouter);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Impossible de se connecter à la base de données " + ex.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            IMongoCollection<ObjetInventaire> objetInventaireCollection = baseDeDonnees.GetCollection<ObjetInventaire>("objetsInventaire");
+            objetInventaireCollection.InsertOne(objetAAjouter);
         }
 
         public void SupprimerObjet(ObjetInventaire objetASupprimer)
         {
-            try
-            {
-                IMongoDatabase baseDeDonnees = clientMongoDB.GetDatabase("TP2DB");
-                IMongoCollection<ObjetInventaire> objetInventaireCollection = baseDeDonnees.GetCollection<ObjetInventaire>("objetsInventaire");
+            IMongoCollection<ObjetInventaire> objetInventaireCollection = baseDeDonnees.GetCollection<ObjetInventaire>("objetsInventaire");
 
-                var filtre = Builders<ObjetInventaire>.Filter.Eq("_id", objetASupprimer.Id);
-                objetInventaireCollection.DeleteOne(filtre);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Impossible de se connecter à la base de données " + ex.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            var filtre = Builders<ObjetInventaire>.Filter.Eq("_id", objetASupprimer.Id);
+            objetInventaireCollection.DeleteOne(filtre);
         }
 
         public List<Commande> ObtenirCommandes()
         {
             List<Commande> commandes = new List<Commande>();
-
-            try
-            {
-                IMongoDatabase baseDeDonnees = clientMongoDB.GetDatabase("TP2DB");
-                commandes = baseDeDonnees.GetCollection<Commande>("Commandes").Aggregate().ToList();
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show("Impossible de se connecter à la base de données " + ex.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            commandes = baseDeDonnees.GetCollection<Commande>("Commandes").Aggregate().ToList();
 
             return commandes;
+        }
+
+        public List<ObjetInventaire> ObtenirObjetsInventaire()
+        {
+            List<ObjetInventaire> objetsInventaire = new List<ObjetInventaire>();
+            objetsInventaire = baseDeDonnees.GetCollection<ObjetInventaire>("objetsInventaire").Aggregate().ToList();
+
+            return objetsInventaire;
         }
 
         private MongoClient OuvrirConnexion()
@@ -91,23 +75,6 @@ namespace TP214E.Data
                 MessageBox.Show("Impossible de se connecter à la base de données " + ex.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             return clientBaseDeDonnees;
-        }
-
-        public List<ObjetInventaire> ObtenirObjetsInventaire()
-        {
-            List<ObjetInventaire> objetsInventaire = new List<ObjetInventaire>();
-
-            try
-            {
-                IMongoDatabase baseDeDonnees = clientMongoDB.GetDatabase("TP2DB");
-                objetsInventaire = baseDeDonnees.GetCollection<ObjetInventaire>("objetsInventaire").Aggregate().ToList();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Impossible de se connecter à la base de données " + ex.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-
-            return objetsInventaire;
         }
     }
 }
