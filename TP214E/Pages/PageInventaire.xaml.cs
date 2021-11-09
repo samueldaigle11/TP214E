@@ -28,10 +28,10 @@ namespace TP214E
 
             this.accesseurBaseDeDonnees = accesseurBaseDeDonnees;
 
-            rafraichirLstObjetsInventaire();
+            RafraichirLstObjetsInventaire();
         }
 
-        private void rafraichirLstObjetsInventaire()
+        private void RafraichirLstObjetsInventaire()
         {
             objetsInventaire = accesseurBaseDeDonnees.ObtenirObjetsInventaire();
             lstObjetsInventaire.Items.Clear();

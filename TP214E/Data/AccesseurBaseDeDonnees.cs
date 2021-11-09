@@ -58,8 +58,8 @@ namespace TP214E.Data
                 modifications = Builders<ObjetInventaire>.Update
                     .Set("Nom", objetAvecModifications.Nom)
                     .Set("Quantite", objetAvecModifications.Quantite)
-                    .Set("Unite", ((Aliment) objetAvecModifications).Unite)
-                    .Set("DatePeremption", ((Aliment) objetAvecModifications).DatePeremption);
+                    .Set("Unite", ((Aliment)objetAvecModifications).Unite)
+                    .Set("DatePeremption", ((Aliment)objetAvecModifications).DatePeremption);
             }
 
             objetInventaireCollection.UpdateOne(filtre, modifications);
