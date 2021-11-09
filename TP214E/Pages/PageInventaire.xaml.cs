@@ -56,7 +56,7 @@ namespace TP214E
 
             if (fenetreObjetInventaire.ShowDialog() == true)
             {
-                rafraichirLstObjetsInventaire();
+                RafraichirLstObjetsInventaire();
             }
         }
 
@@ -68,7 +68,7 @@ namespace TP214E
                 ObjetInventaire objetASupprimer = objetsInventaire[indiceObjetASupprimer];
 
                 accesseurBaseDeDonnees.SupprimerObjet(objetASupprimer);
-                rafraichirLstObjetsInventaire();
+                RafraichirLstObjetsInventaire();
             }
         }
 
@@ -103,7 +103,7 @@ namespace TP214E
 
             if (fenetreObjetInventaire.ShowDialog() == true)
             {
-                rafraichirLstObjetsInventaire();
+                RafraichirLstObjetsInventaire();
             }
         }
     }
