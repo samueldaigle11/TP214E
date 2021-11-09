@@ -44,6 +44,27 @@ namespace TP214E.Data
             objetInventaireCollection.DeleteOne(filtre);
         }
 
+        public void ModifierObjet(ObjectId idObjetAModifier, ObjetInventaire objetAvecModifications)
+        {
+            IMongoCollection<ObjetInventaire> objetInventaireCollection = baseDeDonnees.GetCollection<ObjetInventaire>("objetsInventaire");
+
+            var filtre = Builders<ObjetInventaire>.Filter.Eq("_id", idObjetAModifier);
+            var modifications = Builders<ObjetInventaire>.Update
+                .Set("Nom", objetAvecModifications.Nom)
+                .Set("Quantite", objetAvecModifications.Quantite); ;
+
+            if (objetAvecModifications.GetType() == typeof(Aliment))
+            {
+                modifications = Builders<ObjetInventaire>.Update
+                    .Set("Nom", objetAvecModifications.Nom)
+                    .Set("Quantite", objetAvecModifications.Quantite)
+                    .Set("Unite", ((Aliment) objetAvecModifications).Unite)
+                    .Set("DatePeremption", ((Aliment) objetAvecModifications).DatePeremption);
+            }
+
+            objetInventaireCollection.UpdateOne(filtre, modifications);
+        }
+
         public List<Commande> ObtenirCommandes()
         {
             return baseDeDonnees.GetCollection<Commande>("Commandes").Aggregate().ToList();
