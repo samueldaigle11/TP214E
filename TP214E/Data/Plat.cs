@@ -4,7 +4,7 @@ using System.Text;
 using MongoDB.Bson;
 namespace TP214E.Data
 {
-    public class Plat
+    public class Plat : IPlat
     {
         private ObjectId _id;
         private string _nom;
@@ -35,8 +35,7 @@ namespace TP214E.Data
 
         public override string ToString()
         {
-            return $"{Nom} {Prix}$";
+            return $"{Nom} {Prix.ToString("C2")}";
         }
-        // TODO ajouter les méthodes (EstDisponible, SoustraireItemsNecessairesDeLInventaire, Enregistrer?)
     }
 }
