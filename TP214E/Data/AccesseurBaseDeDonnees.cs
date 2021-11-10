@@ -64,6 +64,12 @@ namespace TP214E.Data
             objetInventaireCollection.UpdateOne(filtre, modifications);
         }
 
+        public void AjouterCommande(Commande commandeAAjouter)
+        {
+            IMongoCollection<Commande> commandeCollection = baseDeDonnees.GetCollection<Commande>("Commandes");
+            commandeCollection.InsertOne(commandeAAjouter);
+        }
+
         public List<Commande> ObtenirCommandes()
         {
             return baseDeDonnees.GetCollection<Commande>("Commandes").Aggregate().ToList();
