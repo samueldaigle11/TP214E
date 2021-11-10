@@ -32,6 +32,47 @@ namespace TP214E.Data
 
         public void AjouterObjet(ObjetInventaire objetAAjouter)
         {
+            // Partie pour ajouter des plats(Ne pas merger cette branche!!!)
+            var objetsNecessaires = new List<(string, int)>
+            {
+                ("frites", 200),
+                ("fromage en grains", 100),
+                ("sauce", 100),
+                ("assiette 8 pouces", 1),
+                ("fourchette", 1)
+            };
+
+            Plat poutine = new Plat("Poutine", 15, objetsNecessaires);
+            IMongoCollection<Plat> plats = baseDeDonnees.GetCollection<Plat>("plats");
+            plats.InsertOne(poutine);
+
+            objetsNecessaires = new List<(string, int)>
+            {
+                ("mesclun", 200),
+                ("tomate", 50),
+                ("concombre", 50),
+                ("bol 6 pouces", 1),
+                ("fourchette", 1)
+            };
+            Plat salade = new Plat("Salade jardinière", 13, objetsNecessaires);
+            plats.InsertOne(salade);
+
+            objetsNecessaires = new List<(string, int)>
+            {
+                ("mesclun", 25),
+                ("tomate", 25),
+                ("pain burger", 1),
+                ("fromage mozarella", 25),
+                ("steak haché", 100),
+                ("assiette 6 pouces", 1)
+            };
+            Plat burger = new Plat("Burger classique", 16, objetsNecessaires);
+            plats.InsertOne(burger);
+
+
+            // ==================================
+            // Fin partie pour ajouter des plats
+
             IMongoCollection<ObjetInventaire> objetInventaireCollection = baseDeDonnees.GetCollection<ObjetInventaire>("objetsInventaire");
             objetInventaireCollection.InsertOne(objetAAjouter);
         }

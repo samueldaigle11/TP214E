@@ -10,9 +10,10 @@ namespace TP214E.Data
         private ObjectId _id;
         private string _nom;
         private double _prix;
-        private List<ObjetInventaire> _objetsInventaireNecessaires;
+        private List<(string, int)> _objetsInventaireNecessaires;
+        //private List<ObjetInventaire> _objetsInventaireNecessaires;
 
-        public Plat(string pNom, double pPrix, List<ObjetInventaire> pObjetsInventaireNecessaires)
+        public Plat(string pNom, double pPrix, List<(string, int)> pObjetsInventaireNecessaires)
         {
             Nom = pNom;
             Prix = pPrix;
@@ -37,7 +38,7 @@ namespace TP214E.Data
             set { _prix = value; }
         }
 
-        public List<ObjetInventaire> ObjetsInventaireNecessaires
+        public List<(string, int)> ObjetsInventaireNecessaires
         {
             get { return _objetsInventaireNecessaires; }
             set { _objetsInventaireNecessaires = value; }
