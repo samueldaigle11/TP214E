@@ -30,6 +30,11 @@ namespace TP214E.Data
             return baseDeDonnees.GetCollection<Aliment>("Aliments").Aggregate().ToList();
         }
 
+        public List<Plat> ObtenirPlats()
+        {
+            return baseDeDonnees.GetCollection<Plat>("plats").Aggregate().ToList();
+        }
+
         public void AjouterObjet(ObjetInventaire objetAAjouter)
         {
             IMongoCollection<ObjetInventaire> objetInventaireCollection = baseDeDonnees.GetCollection<ObjetInventaire>("objetsInventaire");
