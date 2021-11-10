@@ -6,7 +6,7 @@ using MongoDB.Bson;
 
 namespace TP214E.Data
 {
-    public class Commande
+    public class Commande : ICommande
     {
         private ObjectId _id;
         private List<Plat> _plats;
@@ -68,7 +68,7 @@ namespace TP214E.Data
             set { _prixTotal = value; }
         }
 
-        private void CalculerPrixAvantTaxes()
+        public void CalculerPrixAvantTaxes()
         {
             foreach (Plat plat in _plats)
             {
@@ -90,12 +90,12 @@ namespace TP214E.Data
             // Ou ça ferait en sorte que la méthode ne fait pas seulement ce qu'elle dit?
         }
 
-        private void CalculerTps()
+        public void CalculerTps()
         {
             Tps = PrixAvantTaxes * 0.05;
         }
 
-        private void CalculerTvq()
+        public void CalculerTvq()
         {
             Tvq = PrixAvantTaxes * 0.09975;
         }

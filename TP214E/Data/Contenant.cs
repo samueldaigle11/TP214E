@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TP214E.Data
 {
-    public class Contenant : ObjetInventaire
+    public class Contenant : ObjetInventaire, IContenant
     {
         public Contenant(string nom, int quantite) : base(nom, quantite)
         {

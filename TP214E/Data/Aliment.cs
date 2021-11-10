@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TP214E.Data
 {
-    public class Aliment : ObjetInventaire
+    public class Aliment : ObjetInventaire, IAliment
     {
         private string _unite;
         private DateTime _datePeremption;
