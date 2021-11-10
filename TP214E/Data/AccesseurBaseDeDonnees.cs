@@ -24,12 +24,6 @@ namespace TP214E.Data
                 MessageBox.Show("Impossible de se connecter à la base de données " + exception.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
-        public List<Aliment> ObtenirAliments()
-        {
-            return baseDeDonnees.GetCollection<Aliment>("Aliments").Aggregate().ToList();
-        }
-
         public List<Plat> ObtenirPlats()
         {
             return baseDeDonnees.GetCollection<Plat>("plats").Aggregate().ToList();
