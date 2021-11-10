@@ -100,8 +100,9 @@ namespace TP214E.Data
             Tvq = PrixAvantTaxes * 0.09975;
         }
 
-        private void CalculerPrixTotal()
+        public void CalculerPrixTotal()
         {
+            CalculerPrixAvantTaxes();
             CalculerTps();
             CalculerTvq();
             PrixTotal = PrixAvantTaxes + Tps + Tvq;
@@ -109,7 +110,8 @@ namespace TP214E.Data
 
         public override string ToString()
         {
-            return $"{Date.ToString()} {String.Format("0:C2", PrixTotal)}$";
+            //return $"{Date.ToString()} {String.Format("0:C2", PrixTotal)}$";
+            return $"{Date.ToString()} {PrixTotal.ToString("C2")}";
         }
     }
 }
