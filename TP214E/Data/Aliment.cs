@@ -28,5 +28,9 @@ namespace TP214E.Data
             DatePeremption = datePeremption;
         }
 
+        public override string ToString()
+        {
+            return $"{Nom} quantité: {Quantite} {Unite} date péremption: {DatePeremption.ToString()}";
+        }
     }
 }
