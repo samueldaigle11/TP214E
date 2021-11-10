@@ -19,7 +19,7 @@ namespace TP214E.Data
         public Commande()
         {
             Plats = new List<Plat>();
-            Date = new DateTime().ToLocalTime();
+            Date = DateTime.Now.ToLocalTime();
             PrixAvantTaxes = 0;
             Tps = 0;
             Tvq = 0;
