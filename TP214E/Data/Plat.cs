@@ -35,8 +35,7 @@ namespace TP214E.Data
 
         public override string ToString()
         {
-            return $"{Nom} {Prix}$";
+            return $"{Nom} {Prix.ToString("C2")}";
         }
-        // TODO ajouter les méthodes (EstDisponible, SoustraireItemsNecessairesDeLInventaire, Enregistrer?)
     }
 }

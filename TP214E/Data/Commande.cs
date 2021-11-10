@@ -110,7 +110,6 @@ namespace TP214E.Data
 
         public override string ToString()
         {
-            //return $"{Date.ToString()} {String.Format("0:C2", PrixTotal)}$";
             return $"{Date.ToString()} {PrixTotal.ToString("C2")}";
         }
     }
