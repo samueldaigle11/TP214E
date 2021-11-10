@@ -76,14 +76,14 @@ namespace TP214E.Data
             }
         }
 
-        private void AjouterPlat(Plat pPlatAAjouter)
+        public void AjouterPlat(Plat pPlatAAjouter)
         {
             Plats.Add(pPlatAAjouter);
             // Est-ce que ça serait correct de mettre la méthode CalculerPrixTotal ici?
             // Ou ça ferait en sorte que la méthode ne fait pas seulement ce qu'elle dit?
         }
 
-        private void SupprimerPlat(Plat pPlatASupprimer)
+        public void SupprimerPlat(Plat pPlatASupprimer)
         {
             Plats.Remove(pPlatASupprimer);
             // Est-ce que ça serait correct de mettre la méthode CalculerPrixTotal ici?
