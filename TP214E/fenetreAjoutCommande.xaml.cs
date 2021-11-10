@@ -14,6 +14,7 @@ namespace TP214E
         private List<Plat> plats;
         private AccesseurBaseDeDonnees accesseurBaseDeDonnees;
         private Commande commande;
+
         public fenetreAjoutCommande(AccesseurBaseDeDonnees accesseurBaseDeDonnees)
         {
             InitializeComponent();
@@ -22,7 +23,7 @@ namespace TP214E
 
             commande = new Commande();
 
-            //RafraichirLstPlatsDisponibles();
+            RafraichirLstPlatsDisponibles();
         }
 
         private void Annuler(object sender, RoutedEventArgs e)
@@ -53,7 +54,10 @@ namespace TP214E
             {
                 Plat platAAjouterACommande = plats[indicePlatAAjouter];
                 commande.AjouterPlat(platAAjouterACommande);
+                commande.CalculerPrixTotal();
             }
+
+            RafraichirLstContenuCommande();
         }
 
         private void RafraichirLstPlatsDisponibles()
@@ -67,6 +71,16 @@ namespace TP214E
             }
         }
 
+        private void RafraichirLstContenuCommande()
+        {
+            lstContenuCommande.Items.Clear();
+
+            foreach (Plat plat in commande.Plats)
+            {
+                lstContenuCommande.Items.Add(plat);
+            }
+        }
+
         private void EnleverPlatDeLaCommande(object sender, RoutedEventArgs e)
         {
             Plat platAEnlever = (Plat)lstContenuCommande.SelectedItem;
@@ -74,7 +88,10 @@ namespace TP214E
             if (platAEnlever != null)
             {
                 commande.SupprimerPlat(platAEnlever);
+                commande.CalculerPrixTotal();
             }
+
+            RafraichirLstContenuCommande();
         }
     }
 }
