@@ -43,6 +43,11 @@ namespace TP214E.Data
             set { _objetsInventaireNecessaires = value; }
         }
 
+        public override string ToString()
+        {
+            return $"{Nom} {Prix}$";
+        }
+
         // TODO ajouter les méthodes (EstDisponible, SoustraireItemsNecessairesDeLInventaire, Enregistrer?)
     }
 }

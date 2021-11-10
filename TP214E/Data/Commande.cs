@@ -10,6 +10,7 @@ namespace TP214E.Data
     {
         private ObjectId _id;
         private List<Plat> _plats;
+        private DateTime _date;
         private double _prixAvantTaxes;
         private double _tps;
         private double _tvq;
@@ -18,6 +19,7 @@ namespace TP214E.Data
         public Commande()
         {
             Plats = new List<Plat>();
+            Date = new DateTime().ToLocalTime();
             PrixAvantTaxes = 0;
             Tps = 0;
             Tvq = 0;
@@ -34,6 +36,12 @@ namespace TP214E.Data
         {
             get { return _plats; }
             set { _plats = value; }
+        }
+
+        public DateTime Date
+        {
+            get { return _date; }
+            set { _date = value; }
         }
 
         public double PrixAvantTaxes
@@ -97,6 +105,11 @@ namespace TP214E.Data
             CalculerTps();
             CalculerTvq();
             PrixTotal = PrixAvantTaxes + Tps + Tvq;
+        }
+
+        public override string ToString()
+        {
+            return $"{Date.ToString()} {String.Format("0:C2", PrixTotal)}$";
         }
     }
 }

@@ -38,7 +38,7 @@ namespace TP214E
             
             foreach (ObjetInventaire objetInventaire in objetsInventaire)
             {
-                lstObjetsInventaire.Items.Add(objetInventaire.Nom);
+                lstObjetsInventaire.Items.Add(objetInventaire);
             }
         }
 
