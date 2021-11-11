@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TP214E"
         mc:Ignorable="d"
-        Title="Nouvelle commande" Height="450" Width="800">
+        Title="Nouvelle commande" MinHeight="500" MinWidth="800" Height="450" Width="800">
     <Grid ShowGridLines="True" Background="Black">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.5*"/>

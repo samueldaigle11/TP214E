@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TP214E"
         mc:Ignorable="d"
-        Title="MainWindow" MinHeight="500" MinWidth="800" Height="500" Width="800">
+        Title="Gestionnaire de Foodtruck Victor" MinHeight="500" MinWidth="800" Height="500" Width="800">
     <DockPanel>
         <Frame x:Name="_NavigationFrame" NavigationUIVisibility="Hidden" />
     </DockPanel>
