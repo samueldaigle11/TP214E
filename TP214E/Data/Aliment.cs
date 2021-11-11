@@ -6,12 +6,11 @@ using System.Windows;
 
 namespace TP214E.Data
 {
-    public class Aliment : ObjetInventaire, IAliment
+    public class Aliment : ObjetInventaire
     {
         private string _unite;
         private DateTime _datePeremption;
 
-        // TODO VERIFIER SI ON GARDE LES GET SET OU SI ON LAISSE JUSTE GET A CERTAINS ENDROITS ( GARDER JUSTE LES GET ET LES SETS REQUIS)
         public string Unite 
         {
             get { return _unite; }
@@ -27,6 +26,7 @@ namespace TP214E.Data
                 }
             }
         }
+
         public DateTime DatePeremption 
         {
             get { return _datePeremption; }
@@ -44,7 +44,8 @@ namespace TP214E.Data
             }
         }
 
-        public Aliment(string nom, int quantite, string unite, DateTime datePeremption) : base(nom,quantite)
+        public Aliment(string nom, int quantite, string unite, 
+            DateTime datePeremption) : base(nom, quantite)
         {
             Unite = unite;
             DatePeremption = datePeremption;

@@ -4,7 +4,7 @@ using System.Text;
 using MongoDB.Bson;
 namespace TP214E.Data
 {
-    public class Plat : IPlat
+    public class Plat
     {
         private ObjectId _id;
         private string _nom;
