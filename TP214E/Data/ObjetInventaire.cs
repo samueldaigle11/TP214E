@@ -56,5 +56,11 @@ namespace TP214E.Data
             Nom = nom;
             Quantite = quantite;
         }
+
+        public override string ToString()
+        {
+            return $"{Nom} quantité: {Quantite}";
+        }
+
     }
 }

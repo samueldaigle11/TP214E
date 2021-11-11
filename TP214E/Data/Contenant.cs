@@ -10,9 +10,9 @@ namespace TP214E.Data
         {
         }
 
-        public override string ToString()
-        {
-            return $"{Nom} quantité: {Quantite}";
-        }
+        //public override string ToString()
+        //{
+        //    return $"{Nom} quantité: {Quantite}";
+        //}
     }
 }

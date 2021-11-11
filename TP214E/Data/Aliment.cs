@@ -53,7 +53,7 @@ namespace TP214E.Data
 
         public override string ToString()
         {
-            return $"{Nom} quantité: {Quantite} {Unite} date péremption: {DatePeremption.ToString()}";
+            return $"{Nom} quantité: {Quantite} {Unite} date péremption: {DatePeremption.ToString("yyyy-MM-dd")}";
         }
     }
 }
