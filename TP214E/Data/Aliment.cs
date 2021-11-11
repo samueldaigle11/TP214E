@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows;
 
 namespace TP214E.Data
 {
@@ -14,12 +15,33 @@ namespace TP214E.Data
         public string Unite 
         {
             get { return _unite; }
-            set { _unite = value; }
+            set
+            {
+                if (value != "")
+                {
+                    _unite = value;
+                }
+                else
+                {
+                    throw new ArgumentException("L'unité doit être entrée.");
+                }
+            }
         }
         public DateTime DatePeremption 
         {
             get { return _datePeremption; }
-            set { _datePeremption = value; }
+            set
+            {
+                try
+                {
+                    _datePeremption = value;
+                }
+                catch (ArgumentException ex)
+                {
+                    MessageBox.Show(ex.Message, "Erreur",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         public Aliment(string nom, int quantite, string unite, DateTime datePeremption) : base(nom,quantite)
