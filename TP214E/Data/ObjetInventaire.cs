@@ -23,15 +23,36 @@ namespace TP214E.Data
         public string Nom
         {
             get { return _nom; }
-            set { _nom = value; }
+            set
+            {
+                if (value != "")
+                {
+                    _nom = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Le nom doit être entré.");
+                }
+            }
         }
         public int Quantite
         {
             get { return _quantite; }
-            set { _quantite = value; }
+            set
+            {
+                if (value > 0)
+                {
+                    _quantite = value;
+                }
+                else
+                {
+                    throw new ArgumentException("La quantité n'est pas supérieure" +
+                                                " à zéro.");
+                }
+            }
         }
 
-        public ObjetInventaire(string nom, int quantite)
+        protected ObjetInventaire(string nom, int quantite)
         {
             Nom = nom;
             Quantite = quantite;
