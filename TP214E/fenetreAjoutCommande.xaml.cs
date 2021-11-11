@@ -52,6 +52,7 @@ namespace TP214E
 
             if (indicePlatAAjouter != -1)
             {
+                commande.PrixAvantTaxes = 0;
                 Plat platAAjouterACommande = plats[indicePlatAAjouter];
                 commande.AjouterPlat(platAAjouterACommande);
                 commande.CalculerPrixTotal();

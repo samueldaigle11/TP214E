@@ -28,23 +28,31 @@ namespace TP214E
 
         private void AjouterAInventaire()
         {
-            if (this.radioAliment.IsChecked == true)
+            try
             {
-                Aliment nouvelAliment = new Aliment(txtNom.Text, Convert.ToInt32(txtQuantite.Text), txtUnite.Text, DateTime.Parse(txtDatePeremption.Text).ToLocalTime());
-                accesseurBaseDeDonnees.AjouterObjet(nouvelAliment);
-            }
-            else if (this.radioContenant.IsChecked == true)
-            {
-                Contenant nouveauContenant = new Contenant(txtNom.Text, Convert.ToInt32(txtQuantite.Text));
-                accesseurBaseDeDonnees.AjouterObjet(nouveauContenant);
-            }
-            else
-            {
-                Ustensile nouvelUstensile = new Ustensile(txtNom.Text, Convert.ToInt32(txtQuantite.Text));
-                accesseurBaseDeDonnees.AjouterObjet(nouvelUstensile);
-            }
+                if (this.radioAliment.IsChecked == true)
+                {
+                    Aliment nouvelAliment = new Aliment(txtNom.Text, Convert.ToInt32(txtQuantite.Text), txtUnite.Text, DateTime.Parse(txtDatePeremption.Text).ToLocalTime());
+                    accesseurBaseDeDonnees.AjouterObjet(nouvelAliment);
+                }
+                else if (this.radioContenant.IsChecked == true)
+                {
+                    Contenant nouveauContenant = new Contenant(txtNom.Text, Convert.ToInt32(txtQuantite.Text));
+                    accesseurBaseDeDonnees.AjouterObjet(nouveauContenant);
+                }
+                else
+                {
+                    Ustensile nouvelUstensile = new Ustensile(txtNom.Text, Convert.ToInt32(txtQuantite.Text));
+                    accesseurBaseDeDonnees.AjouterObjet(nouvelUstensile);
+                }
 
-            this.DialogResult = true;
+                this.DialogResult = true;
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void ModifierDansInventaire()
