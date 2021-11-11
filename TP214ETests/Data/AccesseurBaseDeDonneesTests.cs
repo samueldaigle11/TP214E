@@ -10,47 +10,53 @@ namespace TP214E.Data.Tests
     [TestClass()]
     public class AccesseurBaseDeDonneesTests
     {
-        [TestMethod()]
-        public void AccesseurBaseDeDonnees_constructeur_utilise_accesseur()
-        {
-            Assert.Fail();
-        }
+        //[TestMethod()]
+        //public void AccesseurBaseDeDonnees_constructeur_utilise_OuvrirConnexion()
+        //{
+        //    // arrange
+        //    var accesseurBaseDonneesMock = new Mock<IAccesseurBaseDeDonnees>();
 
-        [TestMethod()]
-        public void AccesseurBD_ObtenirPlats_retourne_bon_nombre_plats()
-        {
-            // arrange
-            var accesseurBaseDonneesMock = new Mock<IAccesseurBaseDeDonnees>();
-            List<Plat> plats = new List<Plat>();
-            Plat plat = new Plat("poutine", 10.00);
-            plats.Add(plat);
-            plat = new Plat("Salade", 8.00);
-            plats.Add(plat);
+        //    accesseurBaseDonneesMock.
 
-            // act
-            accesseurBaseDonneesMock.Setup(x => x.ObtenirPlats()).Returns(plats);
-            plats = accesseurBaseDonneesMock.Object.ObtenirPlats();
+        //    accesseurBaseDonneesMock.Verify(x => x.Ouv);
+        //}
 
-            // assert
-            Assert.AreEqual(plats.Count, 2);
-        }
+        // test inutile finalement
+        //[TestMethod()]
+        //public void AccesseurBD_ObtenirPlats_retourne_bon_nombre_plats()
+        //{
+        //    // arrange
+        //    var accesseurBaseDonneesMock = new Mock<IAccesseurBaseDeDonnees>();
+        //    List<Plat> plats = new List<Plat>();
+        //    Plat plat = new Plat("poutine", 10.00);
+        //    plats.Add(plat);
+        //    plat = new Plat("Salade", 8.00);
+        //    plats.Add(plat);
 
-        [TestMethod()]
-        public void AccesseurBD_ObtenirPlats_appelle_get_collection()
-        {
-            // arrange
-            AccesseurBaseDeDonnees accesseurBD = new AccesseurBaseDeDonnees();
-            var accesseurBaseDonneesMock = new Mock<IAccesseurBaseDeDonnees>();
-            accesseurBaseDonneesMock.Object.SetBasicProperties(accesseurBD);
-            List<Plat> plats = new List<Plat>();
+        //    // act
+        //    accesseurBaseDonneesMock.Setup(x => x.ObtenirPlats()).Returns(plats);
+        //    plats = accesseurBaseDonneesMock.Object.ObtenirPlats();
 
-            // act
-            accesseurBaseDonneesMock.Setup(x => x.ObtenirPlats()).Returns(plats);
-            plats = accesseurBaseDonneesMock.Object.ObtenirPlats();
+        //    // assert
+        //    Assert.AreEqual(plats.Count, 2);
+        //}
 
-            // assert
-            accesseurBaseDonneesMock.Verify(x => x.);
-        }
+        //[TestMethod()]
+        //public void AccesseurBD_ObtenirPlats_appelle_get_collection()
+        //{
+        //    // arrange
+        //    AccesseurBaseDeDonnees accesseurBD = new AccesseurBaseDeDonnees();
+        //    var accesseurBaseDonneesMock = new Mock<IAccesseurBaseDeDonnees>();
+        //    accesseurBaseDonneesMock.Object.SetBasicProperties(accesseurBD);
+        //    List<Plat> plats = new List<Plat>();
+
+        //    // act
+        //    accesseurBaseDonneesMock.Setup(x => x.ObtenirPlats()).Returns(plats);
+        //    plats = accesseurBaseDonneesMock.Object.ObtenirPlats();
+
+        //    // assert
+        //    accesseurBaseDonneesMock.Verify(x => x.);
+        //}
 
 
         //[TestMethod()]

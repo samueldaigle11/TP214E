@@ -6,7 +6,7 @@ using MongoDB.Bson;
 
 namespace TP214E.Data
 {
-    public class Commande : ICommande
+    public class Commande
     {
         private ObjectId _id;
         private List<Plat> _plats;
