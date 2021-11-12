@@ -1,0 +1,73 @@
+[{
+  "_id": {
+    "$oid": "618b23325b4a22e63c5c7610"
+  },
+  "_t": [
+    "ObjetInventaire",
+    "Aliment"
+  ],
+  "Nom": "frites",
+  "Quantite": 400,
+  "Unite": "grammes",
+  "DatePeremption": {
+    "$date": "2021-11-14T00:00:00Z"
+  }
+},{
+  "_id": {
+    "$oid": "618b23f926635f3b92a830e9"
+  },
+  "_t": [
+    "ObjetInventaire",
+    "Aliment"
+  ],
+  "Nom": "fromage en grains",
+  "Quantite": 500,
+  "Unite": "grammes",
+  "DatePeremption": {
+    "$date": "2021-11-14T00:00:00Z"
+  }
+},{
+  "_id": {
+    "$oid": "618b2468447e3060bb3f8bc9"
+  },
+  "_t": [
+    "ObjetInventaire",
+    "Aliment"
+  ],
+  "Nom": "sauce",
+  "Quantite": 1000,
+  "Unite": "ml",
+  "DatePeremption": {
+    "$date": "2021-11-14T00:00:00Z"
+  }
+},{
+  "_id": {
+    "$oid": "618b249e447e3060bb3f8bca"
+  },
+  "_t": [
+    "ObjetInventaire",
+    "Contenant"
+  ],
+  "Nom": "assiettes 8 pouces",
+  "Quantite": 10
+},{
+  "_id": {
+    "$oid": "618b24b3447e3060bb3f8bcb"
+  },
+  "_t": [
+    "ObjetInventaire",
+    "Ustensile"
+  ],
+  "Nom": "fourchette",
+  "Quantite": 20
+},{
+  "_id": {
+    "$oid": "618e98ca5708c13c2ba5157f"
+  },
+  "_t": [
+    "ObjetInventaire",
+    "Ustensile"
+  ],
+  "Nom": "cuillère",
+  "Quantite": 200
+}]

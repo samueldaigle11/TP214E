@@ -1,0 +1,109 @@
+[{
+  "_id": {
+    "$oid": "618ed770fa2b0c49883ae4ec"
+  },
+  "Plats": [
+    {
+      "_id": {
+        "$oid": "618b23f926635f3b92a830e6"
+      },
+      "Nom": "Poutine",
+      "Prix": 15
+    }
+  ],
+  "Date": {
+    "$date": "2021-11-12T16:06:50.155Z"
+  },
+  "PrixAvantTaxes": 15,
+  "Tps": 0.75,
+  "Tvq": 1.49625,
+  "PrixTotal": 17.24625
+},{
+  "_id": {
+    "$oid": "618ed77dfa2b0c49883ae4ed"
+  },
+  "Plats": [
+    {
+      "_id": {
+        "$oid": "618b23f926635f3b92a830e7"
+      },
+      "Nom": "Salade jardinière",
+      "Prix": 13
+    },
+    {
+      "_id": {
+        "$oid": "618b23f926635f3b92a830e8"
+      },
+      "Nom": "Burger classique",
+      "Prix": 16
+    }
+  ],
+  "Date": {
+    "$date": "2021-11-12T16:06:58.862Z"
+  },
+  "PrixAvantTaxes": 29,
+  "Tps": 1.4500000000000002,
+  "Tvq": 2.8927500000000004,
+  "PrixTotal": 33.34275
+},{
+  "_id": {
+    "$oid": "618ed794fa2b0c49883ae4ee"
+  },
+  "Plats": [
+    {
+      "_id": {
+        "$oid": "618b23f926635f3b92a830e6"
+      },
+      "Nom": "Poutine",
+      "Prix": 15
+    },
+    {
+      "_id": {
+        "$oid": "618b23f926635f3b92a830e8"
+      },
+      "Nom": "Burger classique",
+      "Prix": 16
+    }
+  ],
+  "Date": {
+    "$date": "2021-11-12T16:07:16.736Z"
+  },
+  "PrixAvantTaxes": 31,
+  "Tps": 1.55,
+  "Tvq": 3.09225,
+  "PrixTotal": 35.64225
+},{
+  "_id": {
+    "$oid": "618ed7bdfa2b0c49883ae4ef"
+  },
+  "Plats": [
+    {
+      "_id": {
+        "$oid": "618b23f926635f3b92a830e6"
+      },
+      "Nom": "Poutine",
+      "Prix": 15
+    },
+    {
+      "_id": {
+        "$oid": "618b23f926635f3b92a830e8"
+      },
+      "Nom": "Burger classique",
+      "Prix": 16
+    },
+    {
+      "_id": {
+        "$oid": "618b23f926635f3b92a830e8"
+      },
+      "Nom": "Burger classique",
+      "Prix": 16
+    }
+  ],
+  "Date": {
+    "$date": "2021-11-12T16:07:46.040Z"
+  },
+  "PrixAvantTaxes": 47,
+  "Tps": 2.35,
+  "Tvq": 4.68825,
+  "PrixTotal": 54.038250000000005
+}]

@@ -1,0 +1,19 @@
+[{
+  "_id": {
+    "$oid": "618b23f926635f3b92a830e6"
+  },
+  "Nom": "Poutine",
+  "Prix": 15
+},{
+  "_id": {
+    "$oid": "618b23f926635f3b92a830e7"
+  },
+  "Nom": "Salade jardinière",
+  "Prix": 13
+},{
+  "_id": {
+    "$oid": "618b23f926635f3b92a830e8"
+  },
+  "Nom": "Burger classique",
+  "Prix": 16
+}]
