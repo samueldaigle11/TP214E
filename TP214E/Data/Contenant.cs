@@ -9,10 +9,5 @@ namespace TP214E.Data
         public Contenant(string nom, int quantite) : base(nom, quantite)
         {
         }
-
-        //public override string ToString()
-        //{
-        //    return $"{Nom} quantité: {Quantite}";
-        //}
     }
 }
