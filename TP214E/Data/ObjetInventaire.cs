@@ -25,7 +25,14 @@ namespace TP214E.Data
             {
                 if (value != "")
                 {
-                    _nom = value;
+                    if (value.Length <= 20)
+                    {
+                        _nom = value;
+                    }
+                    else
+                    {
+                        throw new ArgumentException("Le nom doit être de 20 caractères et moins.");
+                    }
                 }
                 else
                 {
@@ -41,7 +48,15 @@ namespace TP214E.Data
             {
                 if (value > 0)
                 {
-                    _quantite = value;
+                    if (value <= 9999)
+                    {
+                        _quantite = value;
+                    }
+                    else
+                    {
+                        throw new ArgumentException("La quantité doit" +
+                                                    " être inférieure à 9999.");
+                    }
                 }
                 else
                 {

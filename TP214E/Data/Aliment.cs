@@ -14,7 +14,14 @@ namespace TP214E.Data
             {
                 if (value != "")
                 {
-                    _unite = value;
+                    if (value.Length <= 12)
+                    {
+                        _unite = value;
+                    }
+                    else
+                    {
+                        throw new ArgumentException("L'unité doit être de 12 caractères et moins.");
+                    }
                 }
                 else
                 {
