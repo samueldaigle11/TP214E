@@ -86,7 +86,7 @@ namespace TP214E.Data
             return baseDeDonnees.GetCollection<ObjetInventaire>("objetsInventaire").Aggregate().ToList();
         }
 
-        public MongoClient OuvrirConnexion()
+        private MongoClient OuvrirConnexion()
         {
             MongoClient clientBaseDeDonnees = null;
 
