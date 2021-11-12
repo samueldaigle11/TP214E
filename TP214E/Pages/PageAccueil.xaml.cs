@@ -25,7 +25,6 @@ namespace TP214E
         {
             PageCommandes frmCommandes = new PageCommandes(accesseurBaseDeDonnees);
 
-            //this.NavigationService.Navigate(new Uri("Pages/PageCommandes.xaml", UriKind.Relative));
             NavigationService.Navigate(frmCommandes);
         }
     }
