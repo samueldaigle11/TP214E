@@ -125,11 +125,11 @@ namespace TP214E
 
         private void VerifierChampQuantiteFormulaire(string quantite)
         {
-            if (txtQuantite.Text == "")
+            if (quantite == "")
             {
                 throw new ArgumentException("La quantité doit être entrée.");
             }
-            else if (!ChaineContientSeulementChiffres(txtQuantite.Text))
+            if (!ChaineContientSeulementChiffres(quantite))
             {
                 throw new ArgumentException("La quantité doit être plus grande que 0.");
             }
