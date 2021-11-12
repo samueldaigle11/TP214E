@@ -140,5 +140,47 @@ namespace TP214E
                 throw new ArgumentException("La date de péremption doit être dans le futur.");
             }
         }
+
+        public void InitializerFenetrePourUneModificationDObjet(ObjetInventaire objetAModifier)
+        {
+            ObjetInventaireAModifier = objetAModifier;
+            Title = "Modification d'un objet/aliment";
+            lbl_titreFenetre.Content = "Modification d'un objet";
+
+            CocherLeBonBoutonRadioSelonObjetAModifier(objetAModifier);
+            DesactiverLesBoutonsRadio();
+            RemplirChampsCorrectementSelonLObjetAModifier(objetAModifier);
+        }
+
+        private void DesactiverLesBoutonsRadio()
+        {
+            radioAliment.IsEnabled = false;
+            radioContenant.IsEnabled = false;
+            radioUstensile.IsEnabled = false;
+        }
+
+        private void CocherLeBonBoutonRadioSelonObjetAModifier(ObjetInventaire objetAModifier)
+        {
+            if (objetAModifier.GetType() == typeof(Contenant))
+            {
+                radioContenant.IsChecked = true;
+            }
+            else if (objetAModifier.GetType() == typeof(Ustensile))
+            {
+                radioUstensile.IsChecked = true;
+            }
+        }
+
+        private void RemplirChampsCorrectementSelonLObjetAModifier(ObjetInventaire objetAModifier)
+        {
+            txtNom.Text = objetAModifier.Nom;
+            txtQuantite.Text = objetAModifier.Quantite.ToString();
+
+            if (objetAModifier.GetType() == typeof(Aliment))
+            {
+                txtUnite.Text = ((Aliment)objetAModifier).Unite;
+                txtDatePeremption.Text = ((Aliment)objetAModifier).DatePeremption.ToString();
+            }
+        }
     }
 }
