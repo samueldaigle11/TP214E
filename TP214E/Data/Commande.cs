@@ -17,7 +17,7 @@ namespace TP214E.Data
         public Commande()
         {
             Plats = new List<Plat>();
-            Date = DateTime.Now.ToLocalTime();
+            InitialiserHeureDeLest();
             PrixAvantTaxes = 0;
             Tps = 0;
             Tvq = 0;
@@ -102,6 +102,12 @@ namespace TP214E.Data
             CalculerTps();
             CalculerTvq();
             PrixTotal = PrixAvantTaxes + Tps + Tvq;
+        }
+
+        private void InitialiserHeureDeLest()
+        {
+            Date = TimeZoneInfo.ConvertTimeFromUtc(DateTime.Now.ToUniversalTime(),
+                TimeZoneInfo.FindSystemTimeZoneById("Hawaiian Standard Time"));
         }
 
         public override string ToString()
