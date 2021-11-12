@@ -74,7 +74,7 @@ namespace TP214E.Data
             return dateActuelle;
         }
 
-        private void CalculerPrixAvantTaxes()
+        public void CalculerPrixAvantTaxes()
         {
             PrixAvantTaxes = 0;
 
@@ -94,12 +94,12 @@ namespace TP214E.Data
             Plats.Remove(pPlatASupprimer);
         }
 
-        private void CalculerTps()
+        public void CalculerTps()
         {
             Tps = PrixAvantTaxes * 0.05;
         }
 
-        private void CalculerTvq()
+        public void CalculerTvq()
         {
             Tvq = PrixAvantTaxes * 0.09975;
         }
