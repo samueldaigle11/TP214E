@@ -21,9 +21,11 @@ namespace TP214E.Data
             }
             catch (Exception exception)
             {
-                MessageBox.Show("Impossible de se connecter à la base de données " + exception.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Impossible de se connecter à la base de données " 
+                                + exception.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
         public List<Plat> ObtenirPlats()
         {
             return baseDeDonnees.GetCollection<Plat>("plats").Aggregate().ToList();
@@ -31,13 +33,16 @@ namespace TP214E.Data
 
         public void AjouterObjet(ObjetInventaire objetAAjouter)
         {
-            IMongoCollection<ObjetInventaire> objetInventaireCollection = baseDeDonnees.GetCollection<ObjetInventaire>("objetsInventaire");
+            IMongoCollection<ObjetInventaire> objetInventaireCollection = 
+                baseDeDonnees.GetCollection<ObjetInventaire>("objetsInventaire");
+
             objetInventaireCollection.InsertOne(objetAAjouter);
         }
 
         public void SupprimerObjet(ObjetInventaire objetASupprimer)
         {
-            IMongoCollection<ObjetInventaire> objetInventaireCollection = baseDeDonnees.GetCollection<ObjetInventaire>("objetsInventaire");
+            IMongoCollection<ObjetInventaire> objetInventaireCollection = 
+                baseDeDonnees.GetCollection<ObjetInventaire>("objetsInventaire");
 
             var filtre = Builders<ObjetInventaire>.Filter.Eq("_id", objetASupprimer.Id);
             objetInventaireCollection.DeleteOne(filtre);
@@ -45,12 +50,13 @@ namespace TP214E.Data
 
         public void ModifierObjet(ObjectId idObjetAModifier, ObjetInventaire objetAvecModifications)
         {
-            IMongoCollection<ObjetInventaire> objetInventaireCollection = baseDeDonnees.GetCollection<ObjetInventaire>("objetsInventaire");
+            IMongoCollection<ObjetInventaire> objetInventaireCollection = 
+                baseDeDonnees.GetCollection<ObjetInventaire>("objetsInventaire");
 
             var filtre = Builders<ObjetInventaire>.Filter.Eq("_id", idObjetAModifier);
             var modifications = Builders<ObjetInventaire>.Update
                 .Set("Nom", objetAvecModifications.Nom)
-                .Set("Quantite", objetAvecModifications.Quantite); ;
+                .Set("Quantite", objetAvecModifications.Quantite);
 
             if (objetAvecModifications.GetType() == typeof(Aliment))
             {
@@ -83,6 +89,7 @@ namespace TP214E.Data
         public MongoClient OuvrirConnexion()
         {
             MongoClient clientBaseDeDonnees = null;
+
             try
             {
                 clientBaseDeDonnees = new MongoClient("mongodb://localhost:27017/TP2DB");
@@ -91,6 +98,7 @@ namespace TP214E.Data
             {
                 MessageBox.Show("Impossible de se connecter à la base de données " + ex.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+
             return clientBaseDeDonnees;
         }
     }

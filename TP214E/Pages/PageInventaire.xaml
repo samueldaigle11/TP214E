@@ -22,7 +22,7 @@
         <Label Grid.Row="0" Grid.Column="1" Content="Inventaire du FoodTruck" Foreground="#FF5F8C5A" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Rockwell" FontSize="36" FontWeight="Normal"/>
         <ListBox Grid.Row="1" Grid.Column="1" Name="lstObjetsInventaire" Margin="0,0,10,10">
         </ListBox>
-        <Button Name="bt_retourAccueil" Content="Retour vers l'Accueil" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" Background="#CC5F8C5A" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" Padding="10,5" FontSize="24" Width="320" FontWeight="Bold" FontFamily="Rockwell" Margin="0,0,0,0" Click="bt_retourAccueil_Click">
+        <Button Name="bt_retourAccueil" Content="Retour vers l'Accueil" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" Background="#CC5F8C5A" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" Padding="10,5" FontSize="24" Width="320" FontWeight="Bold" FontFamily="Rockwell" Margin="0,0,0,0" Click="RetournerAAccueil">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
@@ -30,21 +30,21 @@
             </Button.Resources>
         </Button>
         <StackPanel Grid.Row="1" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Center" >
-            <Button x:Name="bt_ajouterObjet" Content="Ajouter un objet/aliment" Background="#CC5F8C5A" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" FontSize="12" Height="30"  FontWeight="Bold" FontFamily="Tahoma" Click="bt_ajouterObjet_Click">
+            <Button x:Name="bt_ajouterObjet" Content="Ajouter un objet/aliment" Background="#CC5F8C5A" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" FontSize="12" Height="30"  FontWeight="Bold" FontFamily="Tahoma" Click="OuvrirFenetreAjoutObjetInventaire">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="5"/>
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button x:Name="bt_supprimerObjet" Content="Supprimer un objet/aliment" Background="#CC5F8C5A" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" FontSize="12" Height="30"  FontWeight="Bold" FontFamily="Tahoma" Margin="0,10" Click="Supprimer">
+            <Button x:Name="bt_supprimerObjet" Content="Supprimer un objet/aliment" Background="#CC5F8C5A" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" FontSize="12" Height="30"  FontWeight="Bold" FontFamily="Tahoma" Margin="0,10" Click="SupprimerObjetInventaire">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="5"/>
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button x:Name="bt_modifierObjet" Content="Modifier un objet/aliment" Background="#CC5F8C5A" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" FontSize="12" Height="30"  FontWeight="Bold" FontFamily="Tahoma" Click="Modifier">
+            <Button x:Name="bt_modifierObjet" Content="Modifier un objet/aliment" Background="#CC5F8C5A" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" FontSize="12" Height="30"  FontWeight="Bold" FontFamily="Tahoma" Click="ModifierObjetInventaire">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="5"/>

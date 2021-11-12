@@ -1,8 +1,4 @@
-﻿using MongoDB.Bson;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
+﻿using System;
 
 namespace TP214E.Data
 {
@@ -30,11 +26,7 @@ namespace TP214E.Data
         public DateTime DatePeremption 
         {
             get { return _datePeremption; }
-            set
-            {
-
-                    _datePeremption = value;
-            }
+            set { _datePeremption = value; }
         }
 
         public Aliment(string nom, int quantite, string unite, 
@@ -46,7 +38,7 @@ namespace TP214E.Data
 
         public override string ToString()
         {
-            return $"{Nom} quantité: {Quantite} {Unite} date péremption: {DatePeremption.ToString("yyyy-MM-dd")}";
+            return $"{Nom} quantité: {Quantite} {Unite} date péremption: {DatePeremption:yyyy-MM-dd}";
         }
     }
 }

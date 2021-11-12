@@ -3,20 +3,10 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using TP214E.Data;
 
 namespace TP214E
 {
-    /// <summary>
-    /// Logique d'interaction pour Inventaire.xaml
-    /// </summary>
     public partial class PageInventaire : Page
     {
         private AccesseurBaseDeDonnees accesseurBaseDeDonnees;
@@ -27,7 +17,6 @@ namespace TP214E
             InitializeComponent();
 
             this.accesseurBaseDeDonnees = accesseurBaseDeDonnees;
-
             RafraichirLstObjetsInventaire();
         }
 
@@ -42,14 +31,14 @@ namespace TP214E
             }
         }
 
-        private void bt_retourAccueil_Click(object sender, RoutedEventArgs e)
+        private void RetournerAAccueil(object sender, RoutedEventArgs e)
         {
             PageAccueil frmAccueil = new PageAccueil();
 
             NavigationService.Navigate(frmAccueil);
         }
 
-        private void bt_ajouterObjet_Click(object sender, RoutedEventArgs e)
+        private void OuvrirFenetreAjoutObjetInventaire(object sender, RoutedEventArgs e)
         {
             FenetreObjetInventaire fenetreObjetInventaire = new FenetreObjetInventaire(accesseurBaseDeDonnees);
             fenetreObjetInventaire.Title = "Ajout d'un objet/aliment";
@@ -60,7 +49,7 @@ namespace TP214E
             }
         }
 
-        private void Supprimer(object sender, RoutedEventArgs e)
+        private void SupprimerObjetInventaire(object sender, RoutedEventArgs e)
         {
             if (lstObjetsInventaire.SelectedIndex != -1)
             {
@@ -72,7 +61,7 @@ namespace TP214E
             }
         }
 
-        private void Modifier(object sender, RoutedEventArgs e)
+        private void ModifierObjetInventaire(object sender, RoutedEventArgs e)
         {
             int indiceObjetASupprimer = lstObjetsInventaire.SelectedIndex;
 

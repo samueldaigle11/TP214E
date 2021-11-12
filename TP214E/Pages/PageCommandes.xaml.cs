@@ -1,21 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using TP214E.Data;
 
 namespace TP214E
 {
-    /// <summary>
-    /// Logique d'interaction pour PageCommandes.xaml
-    /// </summary>
     public partial class PageCommandes : Page
     {
         private List<Commande> commandes;
@@ -26,18 +15,17 @@ namespace TP214E
             InitializeComponent();
 
             this.accesseurBaseDeDonnees = accesseurBaseDeDonnees;
-
             RafraichirLstCommandes();
         }
 
-        private void bt_retourAccueil_Click(object sender, RoutedEventArgs e)
+        private void RetournerALaPageAccueil(object sender, RoutedEventArgs e)
         {
             PageAccueil frmAccueil = new PageAccueil();
 
             NavigationService.Navigate(frmAccueil);
         }
 
-        private void bt_ajouterCommande_Click(object sender, RoutedEventArgs e)
+        private void OuvrirFenetreAjoutCommande(object sender, RoutedEventArgs e)
         {
             fenetreAjoutCommande fenetreAjoutCommande = new fenetreAjoutCommande(accesseurBaseDeDonnees);
             fenetreAjoutCommande.Title = "Ajout d'une commande";

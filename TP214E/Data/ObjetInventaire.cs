@@ -1,7 +1,5 @@
 ﻿using MongoDB.Bson;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace TP214E.Data
@@ -47,7 +45,7 @@ namespace TP214E.Data
                 }
                 else
                 {
-                    throw new ArgumentException("La quantité n'est pas supérieure" +
+                    throw new ArgumentException("La quantité doit être supérieure" +
                                                 " à zéro.");
                 }
             }
@@ -63,6 +61,5 @@ namespace TP214E.Data
         {
             return $"{Nom} quantité: {Quantite}";
         }
-
     }
 }
