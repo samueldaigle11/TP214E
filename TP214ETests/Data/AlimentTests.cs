@@ -37,14 +37,11 @@ namespace TP214E.Data.Tests
         [TestMethod()]
         public void Aliment_ToString_retourne_bonne_string()
         {
-            // arrange
             Aliment aliment = new Aliment("salade", 100, "grammes",
                 new DateTime(2021, 11, 14));
 
-            // act
             string chaineRetournee = aliment.ToString();
 
-            // assert
             Assert.AreEqual(chaineRetournee, 
                 "salade quantité: 100 grammes date péremption: 2021-11-14");
         }
