@@ -49,7 +49,7 @@
             <RadioButton GroupName="typeObjet" Name="radioUstensile">Ustensile</RadioButton>
         </StackPanel>
 
-        <Button Grid.Row="2" Grid.Column="1" x:Name="bt_accepter" Content="Accepter" Background="#CC5F8C5A" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" FontSize="12" Height="30"  FontWeight="Bold" FontFamily="Tahoma" Width="100" Click="CreerOuModifierObjetInventaire"/>
-        <Button Grid.Row="2" Grid.Column="2" x:Name="bt_annuler" Content="Annuler" Background="#CC5F8C5A" BorderBrush="White" Foreground="White" BorderThickness="2,2,2,2" FontSize="12" Height="30"  FontWeight="Bold" FontFamily="Tahoma" Width="100" Click="AnnulerEtFermer"/>
+        <Button Grid.Row="2" Grid.Column="1" x:Name="bt_accepter" Content="Accepter" Background="#CC5F8C5A" BorderBrush="White" Foreground="Black" BorderThickness="2,2,2,2" FontSize="12" Height="30"  FontWeight="Bold" FontFamily="Tahoma" Width="100" Click="CreerOuModifierObjetInventaire"/>
+        <Button Grid.Row="2" Grid.Column="2" x:Name="bt_annuler" Content="Annuler" Background="#CC5F8C5A" BorderBrush="White" Foreground="Black" BorderThickness="2,2,2,2" FontSize="12" Height="30"  FontWeight="Bold" FontFamily="Tahoma" Width="100" Click="AnnulerEtFermer"/>
     </Grid>
 </Window>
