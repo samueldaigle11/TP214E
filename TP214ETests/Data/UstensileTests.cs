@@ -10,12 +10,6 @@ namespace TP214E.Data.Tests
     public class UstensileTests
     {
         [TestMethod()]
-        public void UstensileTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
         public void Ustensile_ToString_retourne_bonne_string()
         {
             // arrange
