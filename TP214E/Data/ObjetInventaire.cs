@@ -19,6 +19,7 @@ namespace TP214E.Data
             get { return _id; }
             set { _id = value; }
         }
+
         public string Nom
         {
             get { return _nom; }
@@ -34,6 +35,7 @@ namespace TP214E.Data
                 }
             }
         }
+
         public int Quantite
         {
             get { return _quantite; }

@@ -3,6 +3,7 @@ using TP214E.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using MongoDB.Bson;
 
 namespace TP214E.Data.Tests
 {
@@ -10,9 +11,14 @@ namespace TP214E.Data.Tests
     public class PlatTests
     {
         [TestMethod()]
-        public void PlatTest()
+        public void Plat_test_accesseur_Id()
         {
-            Assert.Fail();
+            Plat plat = new Plat("poutine", 10.00);
+            ObjectId id = ObjectId.GenerateNewId();
+
+            plat.Id = id;
+
+            Assert.AreEqual(plat.Id, id);
         }
 
         [TestMethod()]
