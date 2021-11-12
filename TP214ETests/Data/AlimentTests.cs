@@ -20,6 +20,26 @@ namespace TP214E.Data.Tests
         }
 
         [TestMethod()]
+        [ExpectedException(typeof(ArgumentException),
+            "Le nom doit être entré.")]
+        public void Aliment_Champ_Nom_Vide()
+        {
+            Aliment aliment = new Aliment("", 100, "Grammes",
+                new DateTime(2021, 11, 14));
+        }
+
+
+        [TestMethod()]
+        [ExpectedException(typeof(ArgumentException),
+            "La quantité n'est pas supérieure" +
+            " à zéro.")]
+        public void Aliment_Champ_Quantite_Plus_Petit_Que_Un()
+        {
+            Aliment aliment = new Aliment("Patates", 0, "Grammes",
+                new DateTime(2021, 11, 14));
+        }
+
+        [TestMethod()]
         public void Aliment_ToString_retourne_bonne_string()
         {
             // arrange
