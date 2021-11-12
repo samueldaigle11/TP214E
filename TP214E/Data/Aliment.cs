@@ -32,15 +32,8 @@ namespace TP214E.Data
             get { return _datePeremption; }
             set
             {
-                try
-                {
+
                     _datePeremption = value;
-                }
-                catch (ArgumentException ex)
-                {
-                    MessageBox.Show(ex.Message, "Erreur",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
-                }
             }
         }
 
