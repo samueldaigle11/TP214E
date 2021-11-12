@@ -27,7 +27,7 @@ namespace TP214E.Data.Tests
             string chaineRetournee = aliment.ToString();
 
             // assert
-            Assert.AreEqual(chaineRetournee, "salade quantité: 100 grammes date péremption: 2021-11-14 00:00:00");
+            Assert.AreEqual(chaineRetournee, "salade quantité: 100 grammes date péremption: 2021-11-14");
         }
     }
 }
