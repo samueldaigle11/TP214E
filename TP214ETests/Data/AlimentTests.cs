@@ -11,9 +11,12 @@ namespace TP214E.Data.Tests
     public class AlimentTests
     {
         [TestMethod()]
-        public void AlimentTest()
+        [ExpectedException(typeof(ArgumentException),
+            "L'unité doit être entrée.")]
+        public void Aliment_Champ_Unite_Vide()
         {
-            Assert.Fail();
+            Aliment aliment = new Aliment("salade", 100, "",
+                new DateTime(2021, 11, 14));
         }
 
         [TestMethod()]
