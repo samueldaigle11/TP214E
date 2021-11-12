@@ -17,7 +17,7 @@ namespace TP214E.Data
         public Commande()
         {
             Plats = new List<Plat>();
-            Date = DateTime.Now.ToLocalTime();
+            Date = ObtenirDateActuelleHeureDeLEst();
             PrixAvantTaxes = 0;
             Tps = 0;
             Tvq = 0;
@@ -64,6 +64,14 @@ namespace TP214E.Data
         {
             get { return _prixTotal; }
             set { _prixTotal = value; }
+        }
+
+        private DateTime ObtenirDateActuelleHeureDeLEst()
+        {
+            TimeSpan heuresASoustraireDeUTCPourHeureDeLEst = new System.TimeSpan(5, 0, 0);
+            DateTime dateActuelle = DateTime.UtcNow.Subtract(heuresASoustraireDeUTCPourHeureDeLEst);
+
+            return dateActuelle;
         }
 
         public void CalculerPrixAvantTaxes()
