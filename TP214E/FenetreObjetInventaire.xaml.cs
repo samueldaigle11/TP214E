@@ -143,6 +143,7 @@ namespace TP214E
 
         public void InitializerFenetrePourUneModificationDObjet(ObjetInventaire objetAModifier)
         {
+            ObjetInventaireAModifier = objetAModifier;
             Title = "Modification d'un objet/aliment";
             lbl_titreFenetre.Content = "Modification d'un objet";
 
