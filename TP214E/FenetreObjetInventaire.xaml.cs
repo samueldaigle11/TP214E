@@ -134,7 +134,8 @@ namespace TP214E
             {
                 throw new ArgumentException("La date de péremption doit être entrée.");
             }
-            else if (DateTime.Parse(chaineDate) < DateTime.Now)
+
+            if (DateTime.Parse(chaineDate) < DateTime.Now)
             {
                 throw new ArgumentException("La date de péremption doit être dans le futur.");
             }
