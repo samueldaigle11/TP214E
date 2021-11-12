@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using MongoDB.Bson;
-
 
 namespace TP214E.Data
 {
@@ -70,6 +68,8 @@ namespace TP214E.Data
 
         public void CalculerPrixAvantTaxes()
         {
+            PrixAvantTaxes = 0;
+
             foreach (Plat plat in _plats)
             {
                 PrixAvantTaxes += plat.Prix;
@@ -79,15 +79,11 @@ namespace TP214E.Data
         public void AjouterPlat(Plat pPlatAAjouter)
         {
             Plats.Add(pPlatAAjouter);
-            // Est-ce que ça serait correct de mettre la méthode CalculerPrixTotal ici?
-            // Ou ça ferait en sorte que la méthode ne fait pas seulement ce qu'elle dit?
         }
 
         public void SupprimerPlat(Plat pPlatASupprimer)
         {
             Plats.Remove(pPlatASupprimer);
-            // Est-ce que ça serait correct de mettre la méthode CalculerPrixTotal ici?
-            // Ou ça ferait en sorte que la méthode ne fait pas seulement ce qu'elle dit?
         }
 
         public void CalculerTps()
@@ -110,7 +106,7 @@ namespace TP214E.Data
 
         public override string ToString()
         {
-            return $"{Date.ToString()} {PrixTotal.ToString("C2")}";
+            return $"{Date} {PrixTotal:C2}";
         }
     }
 }

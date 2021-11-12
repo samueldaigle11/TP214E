@@ -1,9 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TP214E.Data;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using Moq;
 
 namespace TP214E.Data.Tests
 {
@@ -31,8 +27,7 @@ namespace TP214E.Data.Tests
 
         [TestMethod()]
         [ExpectedException(typeof(ArgumentException),
-            "La quantité n'est pas supérieure" +
-            " à zéro.")]
+            "La quantité n'est pas supérieure à zéro.")]
         public void Aliment_Champ_Quantite_Plus_Petit_Que_Un()
         {
             Aliment aliment = new Aliment("Patates", 0, "Grammes",
@@ -50,7 +45,8 @@ namespace TP214E.Data.Tests
             string chaineRetournee = aliment.ToString();
 
             // assert
-            Assert.AreEqual(chaineRetournee, "salade quantité: 100 grammes date péremption: 2021-11-14");
+            Assert.AreEqual(chaineRetournee, 
+                "salade quantité: 100 grammes date péremption: 2021-11-14");
         }
     }
 }

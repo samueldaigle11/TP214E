@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using MongoDB.Bson;
+﻿using MongoDB.Bson;
 namespace TP214E.Data
 {
     public class Plat
@@ -36,7 +33,7 @@ namespace TP214E.Data
 
         public override string ToString()
         {
-            return $"{Nom} {Prix.ToString("C2")}";
+            return $"{Nom} {Prix:C2}";
         }
     }
 }

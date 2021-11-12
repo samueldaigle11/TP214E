@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
 using TP214E.Data;
 
 namespace TP214E
 {
-    /// <summary>
-    /// Logique d'interaction pour FenetreObjetInventaire.xaml
-    /// </summary>
     public partial class FenetreObjetInventaire : Window
     {
         private AccesseurBaseDeDonnees accesseurBaseDeDonnees;
@@ -37,10 +31,10 @@ namespace TP214E
                 if (radioAliment.IsChecked == true)
                 {
                     VerifierChampDatePeremptionFormulaire(txtDatePeremption.Text);
+
                     Aliment nouvelAliment = new Aliment(txtNom.Text, Convert.ToInt32(txtQuantite.Text), txtUnite.Text,                     
                     DateTime.Parse(txtDatePeremption.Text).ToLocalTime());
                     accesseurBaseDeDonnees.AjouterObjet(nouvelAliment);
-
                 }
                 else if (radioContenant.IsChecked == true)
                 {
@@ -67,12 +61,12 @@ namespace TP214E
             try
             {
                 ObjetInventaire nouvelObjetInventaire;
-
                 VerifierChampQuantiteFormulaire(txtQuantite.Text);
 
                 if (radioAliment.IsChecked == true)
                 {
                     VerifierChampDatePeremptionFormulaire(txtDatePeremption.Text);
+
                     nouvelObjetInventaire = new Aliment(txtNom.Text, Convert.ToInt32(txtQuantite.Text), txtUnite.Text,
                         DateTime.Parse(txtDatePeremption.Text).ToLocalTime());
                 }
@@ -107,7 +101,7 @@ namespace TP214E
             }
         }
 
-        private void Annuler(object sender, RoutedEventArgs e)
+        private void AnnulerEtFermer(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
         }
@@ -146,6 +140,5 @@ namespace TP214E
                 throw new ArgumentException("La date de péremption doit être dans le futur.");
             }
         }
-
     }
 }

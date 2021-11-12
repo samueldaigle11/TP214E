@@ -1,8 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TP214E.Data;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using MongoDB.Bson;
 
 namespace TP214E.Data.Tests
@@ -24,13 +20,10 @@ namespace TP214E.Data.Tests
         [TestMethod()]
         public void Plat_ToString_retourne_la_bonne_string()
         {
-            // arrange
             Plat plat = new Plat("poutine", 10.00);
 
-            // act
             string chaineRetournee = plat.ToString();
 
-            // assert
             Assert.AreEqual(chaineRetournee, "poutine 10,00 $");
         }
     }

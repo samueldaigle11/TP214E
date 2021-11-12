@@ -20,15 +20,14 @@ namespace TP214E
             InitializeComponent();
 
             this.accesseurBaseDeDonnees = accesseurBaseDeDonnees;
-
             commande = new Commande();
 
             RafraichirLstPlatsDisponibles();
         }
 
-        private void Annuler(object sender, RoutedEventArgs e)
+        private void AnnulerEtFermerLaFenetre(object sender, RoutedEventArgs e)
         {
-            this.DialogResult = false;
+            DialogResult = false;
         }
 
         private void CreerCommande(object sender, RoutedEventArgs e)
@@ -36,8 +35,7 @@ namespace TP214E
             if (commande.Plats.Count > 0)
             {
                 accesseurBaseDeDonnees.AjouterCommande(commande);
-
-                this.DialogResult = true;
+                DialogResult = true;
             }
             else
             {
@@ -52,7 +50,6 @@ namespace TP214E
 
             if (indicePlatAAjouter != -1)
             {
-                commande.PrixAvantTaxes = 0;
                 Plat platAAjouterACommande = plats[indicePlatAAjouter];
                 commande.AjouterPlat(platAAjouterACommande);
                 commande.CalculerPrixTotal();
