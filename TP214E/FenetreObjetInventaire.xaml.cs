@@ -26,27 +26,26 @@ namespace TP214E
         {
             try
             {
+                ObjetInventaire nouvelObjetInventaire;
                 VerifierChampQuantiteFormulaire(txtQuantite.Text);
 
                 if (radioAliment.IsChecked == true)
                 {
                     VerifierChampDatePeremptionFormulaire(txtDatePeremption.Text);
 
-                    Aliment nouvelAliment = new Aliment(txtNom.Text, Convert.ToInt32(txtQuantite.Text), txtUnite.Text,                     
+                    nouvelObjetInventaire = new Aliment(txtNom.Text, Convert.ToInt32(txtQuantite.Text), txtUnite.Text,                     
                     DateTime.Parse(txtDatePeremption.Text).ToLocalTime());
-                    accesseurBaseDeDonnees.AjouterObjet(nouvelAliment);
                 }
                 else if (radioContenant.IsChecked == true)
                 {
-                    Contenant nouveauContenant = new Contenant(txtNom.Text, Convert.ToInt32(txtQuantite.Text));
-                    accesseurBaseDeDonnees.AjouterObjet(nouveauContenant);
+                    nouvelObjetInventaire = new Contenant(txtNom.Text, Convert.ToInt32(txtQuantite.Text));
                 }
                 else
                 {
-                    Ustensile nouvelUstensile = new Ustensile(txtNom.Text, Convert.ToInt32(txtQuantite.Text));
-                    accesseurBaseDeDonnees.AjouterObjet(nouvelUstensile);
+                    nouvelObjetInventaire = new Ustensile(txtNom.Text, Convert.ToInt32(txtQuantite.Text));
                 }
 
+                accesseurBaseDeDonnees.AjouterObjet(nouvelObjetInventaire);
                 DialogResult = true;
             }
             catch (ArgumentException ex)
