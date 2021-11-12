@@ -24,6 +24,7 @@ namespace TP214E
         public FenetreObjetInventaire(AccesseurBaseDeDonnees accesseurBaseDeDonnees)
         {
             InitializeComponent();
+
             this.accesseurBaseDeDonnees = accesseurBaseDeDonnees;
         }
 
@@ -32,10 +33,12 @@ namespace TP214E
             try
             {
                 VerifierChampQuantiteFormulaire(txtQuantite.Text);
+
                 if (radioAliment.IsChecked == true)
                 {
                     VerifierChampDatePeremptionFormulaire(txtDatePeremption.Text);
-                    Aliment nouvelAliment = new Aliment(txtNom.Text, Convert.ToInt32(txtQuantite.Text), txtUnite.Text, DateTime.Parse(txtDatePeremption.Text).ToLocalTime());
+                    Aliment nouvelAliment = new Aliment(txtNom.Text, Convert.ToInt32(txtQuantite.Text), txtUnite.Text,                     
+                    DateTime.Parse(txtDatePeremption.Text).ToLocalTime());
                     accesseurBaseDeDonnees.AjouterObjet(nouvelAliment);
 
                 }
@@ -63,9 +66,13 @@ namespace TP214E
         {
             ObjetInventaire nouvelObjetInventaire;
 
+            VerifierChampQuantiteFormulaire(txtQuantite.Text);
+
             if (this.radioAliment.IsChecked == true)
             {
-                nouvelObjetInventaire = new Aliment(txtNom.Text, Convert.ToInt32(txtQuantite.Text), txtUnite.Text, DateTime.Parse(txtDatePeremption.Text).ToLocalTime());
+                VerifierChampDatePeremptionFormulaire(txtDatePeremption.Text);
+                nouvelObjetInventaire = new Aliment(txtNom.Text, Convert.ToInt32(txtQuantite.Text), txtUnite.Text,                                
+                    DateTime.Parse(txtDatePeremption.Text).ToLocalTime());
             }
             else if (this.radioContenant.IsChecked == true)
             {
