@@ -3,6 +3,7 @@ using TP214E.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using MongoDB.Bson;
 
 namespace TP214E.Data.Tests
 {
@@ -10,9 +11,14 @@ namespace TP214E.Data.Tests
     public class CommandeTests
     {
         [TestMethod()]
-        public void CommandeTest()
+        public void Commande_test_accesseur_Id()
         {
-            Assert.Fail();
+            Commande commande = new Commande();
+            ObjectId id = ObjectId.GenerateNewId();
+
+            commande.Id = id;
+
+            Assert.AreEqual(commande.Id, id);
         }
 
         [TestMethod()]

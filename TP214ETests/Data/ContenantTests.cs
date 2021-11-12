@@ -3,6 +3,7 @@ using TP214E.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using MongoDB.Bson;
 
 namespace TP214E.Data.Tests
 {
@@ -10,9 +11,14 @@ namespace TP214E.Data.Tests
     public class ContenantTests
     {
         [TestMethod()]
-        public void ContenantTest()
+        public void Contenant_test_accesseur_Id()
         {
-            Assert.Fail();
+            Contenant contenant = new Contenant("bol", 100);
+            ObjectId id = ObjectId.GenerateNewId();
+
+            contenant.Id = id;
+
+            Assert.AreEqual(contenant.Id, id);
         }
 
         [TestMethod()]
