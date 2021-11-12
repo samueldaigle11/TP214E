@@ -53,7 +53,7 @@ namespace TP214E
                     accesseurBaseDeDonnees.AjouterObjet(nouvelUstensile);
                 }
 
-                this.DialogResult = true;
+                DialogResult = true;
             }
             catch (ArgumentException ex)
             {
@@ -64,27 +64,35 @@ namespace TP214E
 
         private void ModifierDansInventaire()
         {
-            ObjetInventaire nouvelObjetInventaire;
-
-            VerifierChampQuantiteFormulaire(txtQuantite.Text);
-
-            if (this.radioAliment.IsChecked == true)
+            try
             {
-                VerifierChampDatePeremptionFormulaire(txtDatePeremption.Text);
-                nouvelObjetInventaire = new Aliment(txtNom.Text, Convert.ToInt32(txtQuantite.Text), txtUnite.Text,                                
-                    DateTime.Parse(txtDatePeremption.Text).ToLocalTime());
-            }
-            else if (this.radioContenant.IsChecked == true)
-            {
-                nouvelObjetInventaire = new Contenant(txtNom.Text, Convert.ToInt32(txtQuantite.Text));
-            }
-            else
-            {
-                nouvelObjetInventaire = new Ustensile(txtNom.Text, Convert.ToInt32(txtQuantite.Text));
-            }
+                ObjetInventaire nouvelObjetInventaire;
 
-            accesseurBaseDeDonnees.ModifierObjet(objetInventaireAModifier.Id, nouvelObjetInventaire);
-            this.DialogResult = true;
+                VerifierChampQuantiteFormulaire(txtQuantite.Text);
+
+                if (radioAliment.IsChecked == true)
+                {
+                    VerifierChampDatePeremptionFormulaire(txtDatePeremption.Text);
+                    nouvelObjetInventaire = new Aliment(txtNom.Text, Convert.ToInt32(txtQuantite.Text), txtUnite.Text,
+                        DateTime.Parse(txtDatePeremption.Text).ToLocalTime());
+                }
+                else if (radioContenant.IsChecked == true)
+                {
+                    nouvelObjetInventaire = new Contenant(txtNom.Text, Convert.ToInt32(txtQuantite.Text));
+                }
+                else
+                {
+                    nouvelObjetInventaire = new Ustensile(txtNom.Text, Convert.ToInt32(txtQuantite.Text));
+                }
+
+                accesseurBaseDeDonnees.ModifierObjet(objetInventaireAModifier.Id, nouvelObjetInventaire);
+                DialogResult = true;
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void CreerOuModifierObjetInventaire(object sender, RoutedEventArgs e)
@@ -101,7 +109,7 @@ namespace TP214E
 
         private void Annuler(object sender, RoutedEventArgs e)
         {
-            this.DialogResult = false;
+            DialogResult = false;
         }
 
         private bool ChaineContientSeulementChiffres(string chaine)
